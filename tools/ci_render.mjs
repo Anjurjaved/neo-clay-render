@@ -6,7 +6,9 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 const [shard, total] = [+process.argv[2] || 0, +process.argv[3] || 1];
-const scale = +(process.argv[4] || 0.5);
+const scale = +(process.argv[4] || 0.5); // still scale
+const vscale = +(process.env.VSCALE || 0.34); // preview video scale
+const nth = +(process.env.NTH || 2); // every Nth frame (preview)
 const gl = process.argv[5] || "swangle";
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 await ensureBrowser();
@@ -31,19 +33,33 @@ if (!mine.length) process.exit(0);
 const out = path.join(root, "out/renders"); fs.mkdirSync(out, { recursive: true });
 const conc = Math.max(1, os.cpus().length);
 const report = [];
+// ধাপ ১: সব still (পুরো look, এক frame করে — দ্রুত)
 for (const it of mine) {
   const t = Date.now();
   try {
     const inputProps = { id: it.id };
     const composition = await selectComposition({ serveUrl, id: "LibItem", inputProps, chromiumOptions: { gl } });
-    await renderStill({ serveUrl, composition, inputProps, output: path.join(out, it.id + ".jpg"), frame: Math.min(composition.durationInFrames - 1, Math.round(it.still * 30)), scale, chromiumOptions: { gl }, timeoutInMilliseconds: 180000, imageFormat: "jpeg" });
-    await renderMedia({ serveUrl, composition, inputProps, codec: "h264", crf: 26, outputLocation: path.join(out, it.id + ".mp4"), scale, concurrency: conc, chromiumOptions: { gl }, timeoutInMilliseconds: 180000 });
-    const sec = (Date.now() - t) / 1000;
-    report.push({ id: it.id, ok: true, sec, frames: composition.durationInFrames });
-    console.log(`ok ${it.id} ${composition.durationInFrames}f ${sec.toFixed(1)}s (${(composition.durationInFrames / sec).toFixed(2)} fps)`);
+    await renderStill({ serveUrl, composition, inputProps, output: path.join(out, it.id + ".jpg"), frame: Math.min(composition.durationInFrames - 1, Math.round(it.still * 30)), scale, chromiumOptions: { gl }, timeoutInMilliseconds: 240000, imageFormat: "jpeg" });
+    report.push({ id: it.id, still: true, sec: (Date.now() - t) / 1000 });
+    console.log(`still ${it.id} ${((Date.now() - t) / 1000).toFixed(1)}s`);
   } catch (e) {
-    report.push({ id: it.id, ok: false, err: String(e).slice(0, 300) });
-    console.log(`FAIL ${it.id} ${String(e).slice(0, 300)}`);
+    report.push({ id: it.id, still: false, err: String(e).slice(0, 300) });
+    console.log(`FAIL still ${it.id} ${String(e).slice(0, 300)}`);
+  }
+}
+// ধাপ ২: preview ভিডিও (ছোট আকার, প্রতি Nth frame)
+if (process.env.STILLS_ONLY !== "1") for (const it of mine) {
+  const t = Date.now();
+  try {
+    const inputProps = { id: it.id };
+    const composition = await selectComposition({ serveUrl, id: "LibItem", inputProps, chromiumOptions: { gl } });
+    await renderMedia({ serveUrl, composition, inputProps, codec: "h264", crf: 28, outputLocation: path.join(out, it.id + ".mp4"), scale: vscale, everyNthFrame: nth, concurrency: conc, chromiumOptions: { gl }, timeoutInMilliseconds: 240000 });
+    const sec = (Date.now() - t) / 1000;
+    report.push({ id: it.id, video: true, sec, frames: composition.durationInFrames });
+    console.log(`video ${it.id} ${composition.durationInFrames}f ${sec.toFixed(1)}s`);
+  } catch (e) {
+    report.push({ id: it.id, video: false, err: String(e).slice(0, 300) });
+    console.log(`FAIL video ${it.id} ${String(e).slice(0, 300)}`);
   }
 }
 fs.writeFileSync(path.join(out, `report_${shard}.json`), JSON.stringify(report, null, 1));

@@ -6,8 +6,8 @@ on:
         description: "comma-separated item ids, or ALL"
         default: "ALL"
       shards:
-        description: "parallel machines (max 20)"
-        default: "20"
+        description: "number of shards (jobs); 20 run at a time"
+        default: "60"
       scale:
         description: "render scale (0.5 = 540x960, 1 = 1080x1920)"
         default: "0.5"
@@ -39,6 +39,8 @@ jobs:
       - run: node tools/ci_render.mjs ${{ matrix.shard }} ${{ inputs.shards }} ${{ inputs.scale }} swangle
         env:
           IDS: ${{ inputs.ids }}
+          VSCALE: "0.34"
+          NTH: "2"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
