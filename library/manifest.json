@@ -1,0 +1,2143 @@
+[
+ {
+  "id": "devices-macbook",
+  "name": "MacBook Pro 14",
+  "nameBn": "ম্যাকবুক প্রো ১৪",
+  "group": "devices",
+  "kind": "component",
+  "duration": 5.5,
+  "still": 4.2,
+  "tags": [
+   "title",
+   "answer",
+   "steps",
+   "cta",
+   "before_after",
+   "compare"
+  ],
+  "note": "<MacBook open color='silver'|'spacegrey'/> + macbookScreen({position,rotation,scale,open}, ui) — DOM 1512×982, put <MacNotch/> in ui"
+ },
+ {
+  "id": "devices-iphone",
+  "name": "iPhone Pro",
+  "nameBn": "আইফোন প্রো",
+  "group": "devices",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 3.9,
+  "tags": [
+   "chat",
+   "persona",
+   "answer",
+   "cta",
+   "stat"
+  ],
+  "note": "<IPhone color='natural'|'black'|'blue'|'desert'/> + iphoneScreen(pose, ui) — DOM 390×843; width 1 (PHONE_REAL = true scale vs MacBook)"
+ },
+ {
+  "id": "devices-android",
+  "name": "Android phone (Pixel style)",
+  "nameBn": "অ্যান্ড্রয়েড ফোন",
+  "group": "devices",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 3.8,
+  "tags": [
+   "chat",
+   "persona",
+   "answer",
+   "cta"
+  ],
+  "note": "<Pixel color='champagne'|'obsidian'|'mint'/> + pixelScreen(pose, ui) — DOM 390×843, punch-hole via <PhoneStatus kind='android'/>"
+ },
+ {
+  "id": "devices-ipad",
+  "name": "iPad Air",
+  "nameBn": "আইপ্যাড",
+  "group": "devices",
+  "kind": "component",
+  "duration": 5,
+  "still": 4.4,
+  "tags": [
+   "steps",
+   "answer",
+   "checklist",
+   "timeline"
+  ],
+  "note": "<IPad turn={0 portrait..1 landscape}/> + ipadScreen({...pose, turn}, ui, {layout}) — DOM 1180×820 / 820×1180"
+ },
+ {
+  "id": "devices-imac",
+  "name": "iMac desktop + keyboard + mouse",
+  "nameBn": "আইম্যাক ডেস্কটপ",
+  "group": "devices",
+  "kind": "component",
+  "duration": 5.5,
+  "still": 4.4,
+  "tags": [
+   "stat",
+   "answer",
+   "steps",
+   "compare"
+  ],
+  "note": "<IMac color/> <MagicKeyboard/> <MagicMouse/> + imacScreen(pose, ui) — DOM 1600×900; pose.position = desk point under the stand"
+ },
+ {
+  "id": "devices-phone-in-hand-stand",
+  "name": "Phone stand / dock",
+  "nameBn": "ফোন স্ট্যান্ড",
+  "group": "devices",
+  "kind": "component",
+  "duration": 5,
+  "still": 4.2,
+  "tags": [
+   "chat",
+   "cta",
+   "persona"
+  ],
+  "note": "<PhoneStand/> + standPhonePose(h, d, slide) in stand space; screen parent = stand group matrix"
+ },
+ {
+  "id": "screens-search-google-results",
+  "name": "Google results (mobile)",
+  "nameBn": "Google search result — মোবাইল",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 5.5,
+  "still": 4.9,
+  "tags": [
+   "seo",
+   "google",
+   "rank",
+   "search"
+  ],
+  "note": "GoogleResultsMobile {query, caret, suggest, loading, results, pos{id→rank}, reveal, scroll, highlight}"
+ },
+ {
+  "id": "screens-search-google-results-desktop",
+  "name": "Google results (desktop)",
+  "nameBn": "Google search result — desktop",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 5.5,
+  "still": 4.9,
+  "tags": [
+   "seo",
+   "google",
+   "rank",
+   "search"
+  ],
+  "note": "GoogleResultsDesktop — same props; right-side knowledge panel for the `mine` result"
+ },
+ {
+  "id": "screens-search-google-maps",
+  "name": "Google Maps business profile (mobile)",
+  "nameBn": "Google Maps business profile — মোবাইল",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.3,
+  "tags": [
+   "local-seo",
+   "maps",
+   "gbp",
+   "directions"
+  ],
+  "note": "GoogleMapsMobile {biz, zoom, center, pin, label, route, pulse, sheet, photoScroll, press, pressK}"
+ },
+ {
+  "id": "screens-search-google-maps-desktop",
+  "name": "Google Maps business profile (desktop)",
+  "nameBn": "Google Maps business profile — desktop",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 5.5,
+  "still": 2,
+  "tags": [
+   "local-seo",
+   "maps",
+   "gbp",
+   "directions"
+  ],
+  "note": "GoogleMapsDesktop — same props + tab; side panel slides with `sheet`"
+ },
+ {
+  "id": "screens-search-browser",
+  "name": "Browser chrome (desktop)",
+  "nameBn": "Browser — URL typing, tab, loading (desktop)",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 5.6,
+  "still": 3.6,
+  "tags": [
+   "website",
+   "browser",
+   "launch",
+   "visit"
+  ],
+  "note": "BrowserDesktop {tabs, active, url, caret, focus, suggestion, loading, newTab, page, spin}; sample page DentalSiteDesktop {reveal, scroll}"
+ },
+ {
+  "id": "screens-search-browser-mobile",
+  "name": "Browser chrome (mobile)",
+  "nameBn": "Browser — মোবাইল",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 5.6,
+  "still": 3.6,
+  "tags": [
+   "website",
+   "browser",
+   "launch",
+   "visit"
+  ],
+  "note": "BrowserMobile {url, caret, focus, suggestion, loading, newTab, page, tabCount}; sample page DentalSiteMobile"
+ },
+ {
+  "id": "screens-search-ai-answer",
+  "name": "AI answer box (mobile)",
+  "nameBn": "AI উত্তরে business-এর নাম — মোবাইল",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 6.5,
+  "still": 6,
+  "tags": [
+   "aeo",
+   "geo",
+   "ai-search",
+   "chatgpt"
+  ],
+  "note": "AiAnswerMobile {question, composer, caret, sent, searching, stream, mark, sources, scroll, answer: Seg[][], srcs}"
+ },
+ {
+  "id": "screens-search-ai-answer-desktop",
+  "name": "AI answer box (desktop)",
+  "nameBn": "AI উত্তরে business-এর নাম — desktop",
+  "group": "screens_search",
+  "kind": "screen",
+  "duration": 6.5,
+  "still": 6,
+  "tags": [
+   "aeo",
+   "geo",
+   "ai-search",
+   "chatgpt"
+  ],
+  "note": "AiAnswerDesktop — same props; sidebar with chat history"
+ },
+ {
+  "id": "screens-chat-whatsapp",
+  "name": "WhatsApp-style chat",
+  "nameBn": "WhatsApp-ধাঁচের chat",
+  "group": "screens_chat",
+  "kind": "screen",
+  "duration": 6.5,
+  "still": 5.8,
+  "tags": [
+   "chat",
+   "answer",
+   "persona",
+   "cta",
+   "steps"
+  ],
+  "note": "<WhatsAppChat msgs typing clock draft/> + <WhatsAppNewContact number pressed press save/> — msg.k = arrive 0..1, tick 0–3 (3 = blue), voice play 0..1"
+ },
+ {
+  "id": "screens-chat-messenger",
+  "name": "Messenger-style page inbox",
+  "nameBn": "Messenger-ধাঁচের page inbox",
+  "group": "screens_chat",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.4,
+  "tags": [
+   "chat",
+   "persona",
+   "answer",
+   "price",
+   "cta"
+  ],
+  "note": "<MessengerChat page msgs typing chips chipTap chipK chipsOut seen clock/> — product card bubble, gradient out-bubbles, quick replies"
+ },
+ {
+  "id": "screens-chat-sms",
+  "name": "SMS serial confirmation",
+  "nameBn": "SMS — সিরিয়াল নিশ্চিত",
+  "group": "screens_chat",
+  "kind": "screen",
+  "duration": 5,
+  "still": 3.7,
+  "tags": [
+   "chat",
+   "steps",
+   "answer",
+   "checklist"
+  ],
+  "note": "<SmsThread sender msgs heads headsText glow/> — heads-up notification drops, new SMS arrives, highlight pulse"
+ },
+ {
+  "id": "screens-chat-dialer",
+  "name": "Android dialer + calling",
+  "nameBn": "Dialer — number টাইপ ও call",
+  "group": "screens_chat",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.6,
+  "tags": [
+   "cta",
+   "persona",
+   "steps",
+   "chat"
+  ],
+  "note": "<DialerFlow k dial={<DialPad digits pressed press match call/>} calling={<CallingScreen secs clock speaker/>}/> — secs<0 = Calling…"
+ },
+ {
+  "id": "screens-chat-lockscreen",
+  "name": "Lock screen notification stack",
+  "nameBn": "Lock screen — notification-এর ভিড়",
+  "group": "screens_chat",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.5,
+  "tags": [
+   "stat",
+   "persona",
+   "before_after",
+   "myth",
+   "title"
+  ],
+  "note": "<LockScreen notes wake time date/> — notes old→new with k 0..1; newest on top, >3 collapse into stack + 'N more'"
+ },
+ {
+  "id": "screens-chat-email",
+  "name": "Mail inbox + quotation email",
+  "nameBn": "Email — inbox ও quotation",
+  "group": "screens_chat",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.6,
+  "tags": [
+   "price",
+   "steps",
+   "answer",
+   "cta"
+  ],
+  "note": "<MailFlow k inbox={<MailInbox rows tap tapRow/>} mail={<MailQuote lines total reveal totalK/>}/> — new mail slides in (hl), opens quote"
+ },
+ {
+  "id": "screens-site-dental",
+  "name": "Dental chamber website",
+  "nameBn": "ডেন্টাল চেম্বারের website",
+  "group": "screens_sites",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.2,
+  "tags": [
+   "answer",
+   "points",
+   "price",
+   "persona",
+   "cta"
+  ],
+  "note": "<DentalSite mode='desktop'|'mobile' scroll={px} reveal={0..1}/>; anchorOf(DENTAL, mode, 'treatments'|'doctor'|'serial'|'map'|'footer'); maxScroll(DENTAL, mode)"
+ },
+ {
+  "id": "screens-site-restaurant",
+  "name": "Sylhet restaurant website",
+  "nameBn": "সিলেটের restaurant website",
+  "group": "screens_sites",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.2,
+  "tags": [
+   "answer",
+   "points",
+   "price",
+   "cta"
+  ],
+  "note": "<RestaurantSite mode='desktop'|'mobile' scroll={px} reveal={0..1}/>; anchorOf(RESTAURANT, mode, 'menu'|'order'|'reserve'|'footer'); maxScroll(RESTAURANT, mode)"
+ },
+ {
+  "id": "screens-site-ecommerce",
+  "name": "Clothing e-commerce website",
+  "nameBn": "পোশাকের e-commerce website",
+  "group": "screens_sites",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.2,
+  "tags": [
+   "answer",
+   "points",
+   "price",
+   "compare",
+   "cta"
+  ],
+  "note": "<EcommerceSite mode='desktop'|'mobile' scroll={px} reveal={0..1}/>; anchorOf(ECOMMERCE, mode, 'products'|'cart'|'checkout'|'footer'); maxScroll(ECOMMERCE, mode)"
+ },
+ {
+  "id": "screens-site-school",
+  "name": "Coaching center website",
+  "nameBn": "কোচিং সেন্টারের website",
+  "group": "screens_sites",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.2,
+  "tags": [
+   "answer",
+   "points",
+   "price",
+   "steps",
+   "cta"
+  ],
+  "note": "<SchoolSite mode='desktop'|'mobile' scroll={px} reveal={0..1}/>; anchorOf(SCHOOL, mode, 'courses'|'why'|'admission'|'footer'); maxScroll(SCHOOL, mode)"
+ },
+ {
+  "id": "screens-site-realestate",
+  "name": "Real-estate flat listing website",
+  "nameBn": "ফ্ল্যাট বিক্রির real-estate website",
+  "group": "screens_sites",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.2,
+  "tags": [
+   "answer",
+   "points",
+   "price",
+   "compare",
+   "cta"
+  ],
+  "note": "<RealEstateSite mode='desktop'|'mobile' scroll={px} reveal={0..1}/>; anchorOf(REALESTATE, mode, 'listings'|'detail'|'enquiry'|'footer'); maxScroll(REALESTATE, mode)"
+ },
+ {
+  "id": "screens-site-jit",
+  "name": "javeditsolution.com website-development page",
+  "nameBn": "javeditsolution.com — website development page",
+  "group": "screens_sites",
+  "kind": "screen",
+  "duration": 6,
+  "still": 3.2,
+  "tags": [
+   "price",
+   "steps",
+   "cta",
+   "answer",
+   "title"
+  ],
+  "note": "<JitSite mode='desktop'|'mobile' scroll={px} reveal={0..1}/>; anchorOf(JIT, mode, 'packages'|'steps'|'contact'|'footer'); maxScroll(JIT, mode) — real facts: ৳15,000+, 7–14 days, 01616-901396"
+ },
+ {
+  "id": "screens-biz-checkout",
+  "name": "Checkout · bKash / Nagad / Card → Paid",
+  "nameBn": "চেকআউট — bKash/Nagad/Card দিয়ে পেমেন্ট",
+  "group": "screens_business",
+  "kind": "screen",
+  "duration": 5,
+  "still": 4.6,
+  "tags": [
+   "price",
+   "steps",
+   "cta",
+   "before_after"
+  ],
+  "note": "CheckoutScreen {method, selectK, payPress, processing, spin, paid, touch} — phone 390×843"
+ },
+ {
+  "id": "screens-biz-admin",
+  "name": "CMS admin · holiday notice, hours, price edit, Save",
+  "nameBn": "Admin panel — ছুটির notice, সময়, দাম বদল, Save",
+  "group": "screens_business",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.2,
+  "tags": [
+   "answer",
+   "steps",
+   "faq",
+   "before_after",
+   "checklist"
+  ],
+  "note": "AdminScreen {holiday, notice, price, focus, caret, savePress, saved, dirty, cursor} — tablet 1024×700"
+ },
+ {
+  "id": "screens-biz-analytics",
+  "name": "Analytics dashboard · visitors, calls, chart",
+  "nameBn": "Analytics dashboard — visitor, call, chart",
+  "group": "screens_business",
+  "kind": "screen",
+  "duration": 5.5,
+  "still": 4.6,
+  "tags": [
+   "stat",
+   "answer",
+   "before_after",
+   "compare"
+  ],
+  "note": "AnalyticsScreen {range, draw, count, bars, hover, hoverK, cursor}; analyticsPoint(i) → chart point px — tablet 1024×700"
+ },
+ {
+  "id": "screens-biz-booking",
+  "name": "Serial / appointment booking",
+  "nameBn": "সিরিয়াল/appointment booking form",
+  "group": "screens_business",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.6,
+  "tags": [
+   "steps",
+   "cta",
+   "answer",
+   "persona"
+  ],
+  "note": "BookingScreen {day, dayK, slot, slotK, name, phone, focus, caret, confirmPress, confirmed, serial, touch} — phone 390×843"
+ },
+ {
+  "id": "screens-biz-invoice",
+  "name": "Invoice / quote · line items → PAID",
+  "nameBn": "Invoice/quote — line item, মোট ৳, PAID",
+  "group": "screens_business",
+  "kind": "screen",
+  "duration": 6,
+  "still": 5.3,
+  "tags": [
+   "price",
+   "compare",
+   "checklist",
+   "cta"
+  ],
+  "note": "InvoiceScreen {lines 0..4, total, paidPress, paid, cursor} — portrait tablet 700×1024 (rig tabletPortraitScreen)"
+ },
+ {
+  "id": "screens-biz-appstore",
+  "name": "App store listing · Install → Open",
+  "nameBn": "App store listing — Install থেকে Open",
+  "group": "screens_business",
+  "kind": "screen",
+  "duration": 5.5,
+  "still": 4.8,
+  "tags": [
+   "cta",
+   "answer",
+   "stat",
+   "steps"
+  ],
+  "note": "AppStoreScreen {downloading, progress, installed, installPress, shotsX, touch} — android phone 390×843"
+ },
+ {
+  "id": "money-coin",
+  "name": "Polished coin",
+  "nameBn": "চকচকে কয়েন",
+  "group": "money",
+  "kind": "component",
+  "duration": 4,
+  "still": 3.2,
+  "tags": [
+   "price",
+   "stat",
+   "cta"
+  ],
+  "note": "<Coin /> radius 0.5, flat on y; coinGeo() shared"
+ },
+ {
+  "id": "money-banknote",
+  "name": "Banknote + bundle",
+  "nameBn": "টাকার নোট ও গোছা",
+  "group": "money",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 3,
+  "tags": [
+   "price",
+   "stat",
+   "before_after"
+  ],
+  "note": "<Banknote bend flutter phase lift style /> · <NoteBundle count />"
+ },
+ {
+  "id": "money-receipt-printer",
+  "name": "Receipt printer (live paper)",
+  "nameBn": "রসিদ প্রিন্টার (চলমান কাগজ)",
+  "group": "money",
+  "kind": "component",
+  "duration": 6,
+  "still": 4.2,
+  "tags": [
+   "price",
+   "checklist",
+   "cta"
+  ],
+  "note": "<ReceiptPrinter fed time jerk tear data /> · feedCurve() · receiptLength()"
+ },
+ {
+  "id": "money-wallet",
+  "name": "Leather wallet (opens)",
+  "nameBn": "চামড়ার wallet (খোলে, নোট বেরোয়)",
+  "group": "money",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 3.8,
+  "tags": [
+   "price",
+   "persona",
+   "before_after"
+  ],
+  "note": "<Wallet open notes /> — one folded sheet, open 0 closed → 1"
+ },
+ {
+  "id": "money-price-tag",
+  "name": "Swinging price tag",
+  "nameBn": "দোলা price tag (count-up)",
+  "group": "money",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 3.6,
+  "tags": [
+   "price",
+   "cta",
+   "compare"
+  ],
+  "note": "<PriceTag value count swing lag twist /> · tagSwing(t,t0,a0)"
+ },
+ {
+  "id": "money-cost-split",
+  "name": "One-time vs every year",
+  "nameBn": "একবারের খরচ বনাম প্রতি বছরের খরচ",
+  "group": "money",
+  "kind": "scene",
+  "duration": 6.2,
+  "still": 5.6,
+  "tags": [
+   "price",
+   "compare",
+   "faq",
+   "myth"
+  ],
+  "note": "<CostSplit time oneTime yearly period years />"
+ },
+ {
+  "id": "money-piggy",
+  "name": "Piggy bank (saving)",
+  "nameBn": "piggy bank (সঞ্চয়)",
+  "group": "money",
+  "kind": "component",
+  "duration": 4.2,
+  "still": 3.5,
+  "tags": [
+   "price",
+   "stat",
+   "before_after"
+  ],
+  "note": "<Piggy squash /> one SDF mesh · PIG_SLOT for coin drops"
+ },
+ {
+  "id": "money-slider",
+  "name": "Price range slider",
+  "nameBn": "দামের slider",
+  "group": "money",
+  "kind": "component",
+  "duration": 4,
+  "still": 3.6,
+  "tags": [
+   "price",
+   "compare"
+  ],
+  "note": "<PriceSlider value min max press />"
+ },
+ {
+  "id": "money-coin-stack",
+  "name": "Coin stack (grows)",
+  "nameBn": "কয়েনের স্তূপ (উঁচু হয়)",
+  "group": "money",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 4,
+  "tags": [
+   "price",
+   "stat",
+   "compare"
+  ],
+  "note": "<CoinStack time n every start />"
+ },
+ {
+  "id": "places-dental-chamber",
+  "name": "Dental chamber",
+  "nameBn": "ডেন্টাল চেম্বার",
+  "group": "places",
+  "kind": "component",
+  "duration": 5,
+  "still": 4.2,
+  "tags": [
+   "title",
+   "persona",
+   "before_after",
+   "answer"
+  ],
+  "note": "Storefront label/signColor/open/light/doors + roof={<Molar/>} (one fused SDF molar)"
+ },
+ {
+  "id": "places-restaurant",
+  "name": "Restaurant",
+  "nameBn": "রেস্টুরেন্ট",
+  "group": "places",
+  "kind": "component",
+  "duration": 5,
+  "still": 4,
+  "tags": [
+   "title",
+   "persona",
+   "before_after"
+  ],
+  "note": "Storefront + awning + roof={<Cloche lift steam time/>}"
+ },
+ {
+  "id": "places-clothing-shop",
+  "name": "Clothing shop",
+  "nameBn": "কাপড়ের দোকান",
+  "group": "places",
+  "kind": "component",
+  "duration": 5,
+  "still": 4,
+  "tags": [
+   "title",
+   "persona",
+   "before_after"
+  ],
+  "note": "Storefront + teal awning + roof TeeOnHanger (swing prop)"
+ },
+ {
+  "id": "places-pharmacy",
+  "name": "Pharmacy",
+  "nameBn": "ফার্মেসি",
+  "group": "places",
+  "kind": "component",
+  "duration": 5,
+  "still": 4,
+  "tags": [
+   "title",
+   "persona",
+   "before_after"
+  ],
+  "note": "Storefront + roof PharmacyCross (lit prop, spins)"
+ },
+ {
+  "id": "places-office-building",
+  "name": "Office building",
+  "nameBn": "অফিস বিল্ডিং",
+  "group": "places",
+  "kind": "component",
+  "duration": 5,
+  "still": 4.2,
+  "tags": [
+   "title",
+   "persona",
+   "stat"
+  ],
+  "note": "OfficeTower lights (floors light up), doors, signPop (briefcase on roof)"
+ },
+ {
+  "id": "places-reception",
+  "name": "Reception desk",
+  "nameBn": "রিসেপশন ডেস্ক",
+  "group": "places",
+  "kind": "component",
+  "duration": 5,
+  "still": 3.1,
+  "tags": [
+   "persona",
+   "chat",
+   "steps"
+  ],
+  "note": "Reception person 0..1 (receptionist or empty), wave, bellPress/bellRing, screenOn"
+ },
+ {
+  "id": "places-street",
+  "name": "Shop street",
+  "nameBn": "দোকানের সারি (রাস্তা)",
+  "group": "places",
+  "kind": "scene",
+  "duration": 6,
+  "still": 5.2,
+  "tags": [
+   "title",
+   "compare",
+   "stat",
+   "persona"
+  ],
+  "note": "Street t — row of shops pop in, shutters open one by one, lamps light"
+ },
+ {
+  "id": "characters-zdebug",
+  "name": "debug",
+  "nameBn": "debug",
+  "group": "characters",
+  "kind": "component",
+  "duration": 2,
+  "still": 0.5
+ },
+ {
+  "id": "characters-owner",
+  "name": "Business owner",
+  "nameBn": "ব্যবসার মালিক",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5.6,
+  "still": 2.9,
+  "tags": [
+   "persona",
+   "title",
+   "answer",
+   "cta",
+   "steps"
+  ],
+  "note": "<Character role='owner' pose={walk|wave|point…} holdL={<Held kind='cup' side='L'/>}/> — collar + tie, coffee cup in hand"
+ },
+ {
+  "id": "characters-doctor",
+  "name": "Doctor",
+  "nameBn": "ডাক্তার",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5.2,
+  "still": 2.4,
+  "tags": [
+   "persona",
+   "answer",
+   "faq",
+   "quote"
+  ],
+  "note": "role='doctor' — fused lab coat (sleeves follow arms) + stethoscope; holdL clipboard; think/point poses"
+ },
+ {
+  "id": "characters-customer",
+  "name": "Customer",
+  "nameBn": "কাস্টমার",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5,
+  "still": 1.5,
+  "tags": [
+   "persona",
+   "chat",
+   "before_after",
+   "cta"
+  ],
+  "note": "role='customer' — cap; walk while holding a phone (holdR phone) + shopping bag (holdL bag)"
+ },
+ {
+  "id": "characters-receptionist",
+  "name": "Receptionist",
+  "nameBn": "রিসেপশনিস্ট",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5,
+  "still": 3,
+  "tags": [
+   "persona",
+   "steps",
+   "chat",
+   "answer"
+  ],
+  "note": "role='receptionist' — headset + lanyard ID; typeAt(t, stand, 0.17, 0.3) behind a counter, hands visible"
+ },
+ {
+  "id": "characters-developer",
+  "name": "Developer",
+  "nameBn": "ডেভেলপার",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5.5,
+  "still": 2.2,
+  "tags": [
+   "persona",
+   "steps",
+   "timeline",
+   "answer"
+  ],
+  "note": "role='developer' — headphones; sit + typeAt on a laptop (laptopScreen DOM code editor), cheer on deploy"
+ },
+ {
+  "id": "characters-poses",
+  "name": "Pose set",
+  "nameBn": "সব ভঙ্গি",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5,
+  "still": 2.6,
+  "tags": [
+   "persona",
+   "steps"
+  ],
+  "note": "poses.ts: walk(dist,k) cheer think point(D) holdPhone type(typeAt) wave sit — mixPose/withArm blend them"
+ },
+ {
+  "id": "characters-crowd",
+  "name": "Crowd (instanced)",
+  "nameBn": "ভিড় (১৩০ জন)",
+  "group": "characters",
+  "kind": "component",
+  "duration": 6,
+  "still": 3.4,
+  "tags": [
+   "stat",
+   "title",
+   "cta",
+   "compare"
+  ],
+  "note": "<Crowd t members={planCrowd(n)} gatherAt disperseAt cheerAt/> — 14 baked one-piece meshes, instanced"
+ },
+ {
+  "id": "characters-bubbles",
+  "name": "Speech & thought bubbles",
+  "nameBn": "কথা ও ভাবনার বাবল",
+  "group": "characters",
+  "kind": "component",
+  "duration": 5.5,
+  "still": 4.6,
+  "tags": [
+   "chat",
+   "faq",
+   "quote",
+   "myth"
+  ],
+  "note": "<SpeechBubble pop dots text textIn tail/> <ThoughtBubble pop puffs dots text/> — one-piece soft clay"
+ },
+ {
+  "id": "icons-tooth",
+  "name": "Tooth",
+  "nameBn": "দাঁত",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "persona",
+   "answer",
+   "title"
+  ],
+  "note": "<ClayIcon name=\"tooth\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-map-pin",
+  "name": "Map pin",
+  "nameBn": "ম্যাপ পিন",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "answer",
+   "points",
+   "stat"
+  ],
+  "note": "<ClayIcon name=\"map-pin\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-shield-check",
+  "name": "Shield check",
+  "nameBn": "সুরক্ষা শিল্ড",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "checklist",
+   "points",
+   "myth"
+  ],
+  "note": "<ClayIcon name=\"shield-check\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-padlock",
+  "name": "Padlock",
+  "nameBn": "তালা",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "points",
+   "myth",
+   "faq"
+  ],
+  "note": "<ClayIcon name=\"padlock\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-key",
+  "name": "Key",
+  "nameBn": "চাবি",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "points",
+   "answer"
+  ],
+  "note": "<ClayIcon name=\"key\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-globe",
+  "name": "Globe",
+  "nameBn": "গ্লোব (ওয়েব)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "title",
+   "points",
+   "answer"
+  ],
+  "note": "<ClayIcon name=\"globe\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-server",
+  "name": "Server",
+  "nameBn": "সার্ভার",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "points",
+   "steps",
+   "compare"
+  ],
+  "note": "<ClayIcon name=\"server\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-cloud",
+  "name": "Cloud",
+  "nameBn": "ক্লাউড",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "points",
+   "answer"
+  ],
+  "note": "<ClayIcon name=\"cloud\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-gear",
+  "name": "Gear",
+  "nameBn": "গিয়ার",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "steps",
+   "points"
+  ],
+  "note": "<ClayIcon name=\"gear\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-wrench",
+  "name": "Wrench",
+  "nameBn": "রেঞ্চ",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "steps",
+   "faq"
+  ],
+  "note": "<ClayIcon name=\"wrench\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-magnifier",
+  "name": "Magnifier",
+  "nameBn": "ম্যাগনিফায়ার (সার্চ)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "answer",
+   "faq",
+   "title"
+  ],
+  "note": "<ClayIcon name=\"magnifier\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-envelope",
+  "name": "Envelope",
+  "nameBn": "খাম (ইমেইল)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "cta",
+   "chat"
+  ],
+  "note": "<ClayIcon name=\"envelope\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-bell",
+  "name": "Bell",
+  "nameBn": "নোটিফিকেশন বেল",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "chat",
+   "cta"
+  ],
+  "note": "<ClayIcon name=\"bell\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-chart-up",
+  "name": "Chart up",
+  "nameBn": "গ্রোথ চার্ট",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "stat",
+   "before_after"
+  ],
+  "note": "<ClayIcon name=\"chart-up\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-star",
+  "name": "Star",
+  "nameBn": "স্টার (রেটিং)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "stat",
+   "quote"
+  ],
+  "note": "<ClayIcon name=\"star\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-calendar",
+  "name": "Calendar",
+  "nameBn": "ক্যালেন্ডার",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "timeline",
+   "steps"
+  ],
+  "note": "<ClayIcon name=\"calendar\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-clock",
+  "name": "Clock",
+  "nameBn": "ঘড়ি",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "timeline",
+   "stat"
+  ],
+  "note": "<ClayIcon name=\"clock\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-hourglass",
+  "name": "Hourglass",
+  "nameBn": "বালিঘড়ি",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "timeline",
+   "myth"
+  ],
+  "note": "<ClayIcon name=\"hourglass\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-megaphone",
+  "name": "Megaphone",
+  "nameBn": "মেগাফোন",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "title",
+   "cta"
+  ],
+  "note": "<ClayIcon name=\"megaphone\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-cart",
+  "name": "Cart",
+  "nameBn": "শপিং কার্ট",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "price",
+   "points"
+  ],
+  "note": "<ClayIcon name=\"cart\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-shopping-bag",
+  "name": "Shopping bag",
+  "nameBn": "শপিং ব্যাগ",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "price",
+   "persona"
+  ],
+  "note": "<ClayIcon name=\"shopping-bag\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-document",
+  "name": "Document",
+  "nameBn": "ডকুমেন্ট",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "checklist",
+   "steps",
+   "faq"
+  ],
+  "note": "<ClayIcon name=\"document\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-stamp",
+  "name": "Stamp",
+  "nameBn": "স্ট্যাম্প (সিল)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "checklist",
+   "myth"
+  ],
+  "note": "<ClayIcon name=\"stamp\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-phone-handset",
+  "name": "Phone handset",
+  "nameBn": "ফোন রিসিভার (কল)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "cta",
+   "chat"
+  ],
+  "note": "<ClayIcon name=\"phone-handset\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-chat-bubble",
+  "name": "Chat bubble",
+  "nameBn": "চ্যাট বাবল",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "chat",
+   "quote",
+   "faq"
+  ],
+  "note": "<ClayIcon name=\"chat-bubble\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-rocket",
+  "name": "Rocket",
+  "nameBn": "রকেট",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "title",
+   "cta",
+   "stat"
+  ],
+  "note": "<ClayIcon name=\"rocket\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-lightning",
+  "name": "Lightning",
+  "nameBn": "বিদ্যুৎ (স্পিড)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "stat",
+   "compare"
+  ],
+  "note": "<ClayIcon name=\"lightning\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-heart",
+  "name": "Heart",
+  "nameBn": "হার্ট (লাইক)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "quote",
+   "persona"
+  ],
+  "note": "<ClayIcon name=\"heart\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-home",
+  "name": "Home",
+  "nameBn": "বাড়ি (হোম)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "title",
+   "persona"
+  ],
+  "note": "<ClayIcon name=\"home\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-users",
+  "name": "Users",
+  "nameBn": "ইউজার (মানুষ)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 3,
+  "still": 2.2,
+  "tags": [
+   "persona",
+   "stat"
+  ],
+  "note": "<ClayIcon name=\"users\" color accent ink scale/> (~2 units tall at scale 1)"
+ },
+ {
+  "id": "icons-set",
+  "name": "Icon set (30)",
+  "nameBn": "আইকন সেট (৩০টা)",
+  "group": "icons",
+  "kind": "component",
+  "duration": 4,
+  "still": 3,
+  "tags": [
+   "points",
+   "title",
+   "checklist"
+  ],
+  "note": "all 30 icons in a 5×6 grid, staggered pop + idle sway"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-bars",
+  "name": "Bar chart (growing)",
+  "nameBn": "বার চার্ট — বাড়তে থাকা",
+  "duration": 4,
+  "still": 3.4,
+  "tags": [
+   "stat",
+   "before_after",
+   "points"
+  ],
+  "note": "<BarChart values labels grow={values.map((_,i)=>barGrow(t,i))} highlight title/> — bevel-safe stretch, count-up"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-donut",
+  "name": "Donut chart (clay)",
+  "nameBn": "ডোনাট চার্ট — clay",
+  "duration": 4,
+  "still": 3.4,
+  "tags": [
+   "stat",
+   "compare",
+   "points"
+  ],
+  "note": "<DonutChart slices={[{value,label,color}]} sweep={0..1} highlight pop centerLabel legend/> + <DonutCradle/>"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-progress",
+  "name": "Progress bar + percent",
+  "nameBn": "প্রগ্রেস বার + শতাংশ",
+  "duration": 4,
+  "still": 3.5,
+  "tags": [
+   "steps",
+   "timeline",
+   "stat"
+  ],
+  "note": "<ProgressBar value={0..1 (+overshoot = squash)} title steps done/>"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-road-timeline",
+  "name": "Road timeline (figure walks)",
+  "nameBn": "রাস্তা টাইমলাইন — figure হাঁটে",
+  "duration": 6.5,
+  "still": 6.2,
+  "tags": [
+   "timeline",
+   "steps"
+  ],
+  "note": "<RoadTimeline stations stops progress walk ages draw path?/>; roadSchedule(t, stops) gives progress/walk/ages"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-steps-stairs",
+  "name": "Steps stairs (figure climbs)",
+  "nameBn": "সিঁড়ি-ধাপ — figure ওঠে",
+  "duration": 4.5,
+  "still": 4.2,
+  "tags": [
+   "steps",
+   "timeline"
+  ],
+  "note": "<StepsStairs steps rise climb land cheer doneAge/>; stairsSchedule(t, n)"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-checklist",
+  "name": "Checklist (ticks pop)",
+  "nameBn": "চেকলিস্ট — টিক পড়ে",
+  "duration": 4.5,
+  "still": 4,
+  "tags": [
+   "checklist",
+   "points"
+  ],
+  "note": "<Checklist items ages={checklistAges(t,n)} title/> — English labels (3D text)"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-balance-scale",
+  "name": "Balance scale (compare)",
+  "nameBn": "দাঁড়িপাল্লা — তুলনা",
+  "duration": 5,
+  "still": 4.6,
+  "tags": [
+   "compare",
+   "myth",
+   "price"
+  ],
+  "note": "<BalanceScale blocks={[{label,color,side,at}]} t angle={scaleAngle(t,blocks)} swing={scaleSwing(t,blocks)} leftTitle rightTitle/>"
+ },
+ {
+  "group": "dataviz",
+  "kind": "screen",
+  "id": "dataviz-before-after",
+  "name": "Before / after slider",
+  "nameBn": "আগে / পরে — slider",
+  "duration": 4.5,
+  "still": 4.2,
+  "tags": [
+   "before_after",
+   "compare"
+  ],
+  "note": "<BeforeAfterFrame split/> + Stage screens={[beforeAfterScreen(frameMatrix, split, before?, after?)]}"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-counter",
+  "name": "3D odometer counter",
+  "nameBn": "৩D odometer কাউন্টার",
+  "duration": 4.2,
+  "still": 3.9,
+  "tags": [
+   "stat",
+   "title"
+  ],
+  "note": "<Odometer value digits jiggle label commas/> — real carry logic (odoDigit)"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-iceberg",
+  "name": "Iceberg (seen vs hidden)",
+  "nameBn": "আইসবার্গ — দেখা বনাম লুকানো",
+  "duration": 5,
+  "still": 4.6,
+  "tags": [
+   "myth",
+   "points",
+   "price"
+  ],
+  "note": "<Iceberg time rise splash above aboveAge below belowAges/> — use Stage floor={false}"
+ },
+ {
+  "group": "dataviz",
+  "kind": "component",
+  "id": "dataviz-funnel",
+  "name": "Lead funnel",
+  "nameBn": "লিড ফানেল",
+  "duration": 5.5,
+  "still": 5.2,
+  "tags": [
+   "stat",
+   "steps",
+   "points"
+  ],
+  "note": "<Funnel tiers={[{label,value,color,ink?}]} tierIn count flow balls exitEvery/>"
+ },
+ {
+  "id": "effects-confetti",
+  "name": "Confetti burst",
+  "nameBn": "কনফেটি বিস্ফোরণ",
+  "group": "effects",
+  "kind": "component",
+  "duration": 5,
+  "still": 1.5,
+  "tags": [
+   "cta",
+   "stat",
+   "checklist",
+   "before_after"
+  ],
+  "note": "<Confetti t at origin count seed spread lift clearAt/> — seeded drag-ballistics, flutter, lands flat"
+ },
+ {
+  "id": "effects-sparkle-burst",
+  "name": "Sparkle burst",
+  "nameBn": "ঝিকিমিকি তারা",
+  "group": "effects",
+  "kind": "component",
+  "duration": 4,
+  "still": 1.4,
+  "tags": [
+   "answer",
+   "title",
+   "cta",
+   "stat"
+  ],
+  "note": "<SparkleBurst t at origin radius count dots duration/> — soft bevelled 4-point glints"
+ },
+ {
+  "id": "effects-glow-ring",
+  "name": "Floor glow halo",
+  "nameBn": "নিচে আলোর আভা",
+  "group": "effects",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 2.2,
+  "tags": [
+   "answer",
+   "persona",
+   "compare",
+   "price"
+  ],
+  "note": "<GlowRing t at radius position period until out>{obj}</GlowRing> — soft floor pool + light waves"
+ },
+ {
+  "id": "effects-floor-ripple",
+  "name": "Floor ripple",
+  "nameBn": "floor-এ ঢেউ",
+  "group": "effects",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 1.4,
+  "tags": [
+   "title",
+   "stat",
+   "cta"
+  ],
+  "note": "<FloorRipple t sources=[{x,z,at,amp}]/> — floor itself waves (seamless stage shader)"
+ },
+ {
+  "id": "effects-light-sweep",
+  "name": "Light sweep",
+  "nameBn": "আলোর ঝলক",
+  "group": "effects",
+  "kind": "component",
+  "duration": 4,
+  "still": 1.15,
+  "tags": [
+   "title",
+   "price",
+   "cta",
+   "answer"
+  ],
+  "note": "<LightSweep progress={sweepProgress(t,t0,dur)}>{obj}</LightSweep> — sheen band over any object"
+ },
+ {
+  "id": "effects-coin-burst",
+  "name": "Coin burst",
+  "nameBn": "কয়েন ফোয়ারা",
+  "group": "effects",
+  "kind": "component",
+  "duration": 4.5,
+  "still": 1,
+  "tags": [
+   "price",
+   "stat",
+   "compare"
+  ],
+  "note": "<CoinBurst t at origin count seed clearAt/> — flip, bounce, Euler-disk settle"
+ },
+ {
+  "id": "effects-scene-handoff",
+  "name": "Scene hand-off sink wave",
+  "nameBn": "scene বদল — ঢেউয়ে ডোবা",
+  "group": "effects",
+  "kind": "component",
+  "duration": 5,
+  "still": 2.1,
+  "tags": [
+   "title",
+   "points",
+   "steps",
+   "timeline",
+   "cta"
+  ],
+  "note": "<Handoff t at x height originX>{obj}</Handoff> + handoffRipples() → FloorRipple; mode='shrink' for DOM devices"
+ },
+ {
+  "id": "effects-camera-presets",
+  "name": "Camera presets",
+  "nameBn": "ক্যামেরা চলন",
+  "group": "effects",
+  "kind": "component",
+  "duration": 6,
+  "still": 3,
+  "tags": [
+   "title",
+   "persona",
+   "compare",
+   "cta"
+  ],
+  "note": "camPushIn / camOrbit / camParallaxRise / camBlend / camBreath / camChain → Cam"
+ },
+ {
+  "id": "scenes-title-dental",
+  "name": "Title hook — dental chamber, 30 missed calls",
+  "nameBn": "শুরুর hook — ডেন্টাল চেম্বার, ৩০টা missed call",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12.5,
+  "still": 10.6,
+  "tags": [
+   "title"
+  ],
+  "note": "<SceneTitle t dur cue data={TitleData}/> — industry shop + place pin/tag → owner walks in, phone alerts count up → customers leave → hook board drops"
+ },
+ {
+  "id": "scenes-title-restaurant",
+  "name": "Title hook — restaurant, 18 unanswered orders",
+  "nameBn": "শুরুর hook — রেস্টুরেন্ট, ১৮টা order message",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12.5,
+  "still": 6.2,
+  "tags": [
+   "title"
+  ],
+  "note": "<SceneTitle t dur cue data={TitleData}/> — industry shop + place pin/tag → owner walks in, phone alerts count up → customers leave → hook board drops"
+ },
+ {
+  "id": "scenes-quote-ecommerce",
+  "name": "Owner quote — 50 messages, 5 orders (leak)",
+  "nameBn": "মালিকের কথা — ৫০ message, ৫ order",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 6.6,
+  "tags": [
+   "quote"
+  ],
+  "note": "<SceneQuote t dur cue data={QuoteData}/> — owner in front of shop, clay speech bubble with Bangla words on cue, problem = pile | leak + counter tag"
+ },
+ {
+  "id": "scenes-quote-school",
+  "name": "Owner quote — same question 100 times (pile)",
+  "nameBn": "মালিকের কথা — একই প্রশ্ন ১০০ বার",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 7.4,
+  "tags": [
+   "quote"
+  ],
+  "note": "<SceneQuote t dur cue data={QuoteData}/> — owner in front of shop, clay speech bubble with Bangla words on cue, problem = pile | leak + counter tag"
+ },
+ {
+  "id": "scenes-quote-dental",
+  "name": "Owner quote — 40 calls a day (pile)",
+  "nameBn": "মালিকের কথা — দিনে ৪০টা call",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 9,
+  "still": 6.4,
+  "tags": [
+   "quote"
+  ],
+  "note": "<SceneQuote t dur cue data={QuoteData}/> — owner in front of shop, clay speech bubble with Bangla words on cue, problem = pile | leak + counter tag"
+ },
+ {
+  "id": "scenes-answer-dental",
+  "name": "Answer scene — dental chamber",
+  "nameBn": "উত্তর scene — ডেন্টাল চেম্বার",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11.5,
+  "still": 10.2,
+  "tags": [
+   "answer"
+  ],
+  "note": "<SceneAnswer t dur cue data={{industry, priceMin, priceMax, daysMin, daysMax, cues}}/> — logo, MacBook site build, hanging price tag, flip calendar → LIVE"
+ },
+ {
+  "id": "scenes-answer-restaurant",
+  "name": "Answer scene — restaurant",
+  "nameBn": "উত্তর scene — রেস্তোরাঁ",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12.5,
+  "still": 11,
+  "tags": [
+   "answer"
+  ],
+  "note": "same template, restaurant data (grey MacBook, cloche subject)"
+ },
+ {
+  "id": "scenes-stat-ecommerce",
+  "name": "Stat scene — e-commerce (counter)",
+  "nameBn": "স্ট্যাট scene — অনলাইন শপ (counter)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 7.5,
+  "tags": [
+   "stat"
+  ],
+  "note": "<SceneStat data={{industry, value, label, sub, unit, suffix, cues}}/> — visual auto: odometer + falling subject pile"
+ },
+ {
+  "id": "scenes-stat-school",
+  "name": "Stat scene — coaching (calendar)",
+  "nameBn": "স্ট্যাট scene — কোচিং (calendar)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 7.5,
+  "tags": [
+   "stat"
+  ],
+  "note": "unit DAYS → flip calendar"
+ },
+ {
+  "id": "scenes-stat-realestate",
+  "name": "Stat scene — real estate (bars)",
+  "nameBn": "স্ট্যাট scene — রিয়েল এস্টেট (bars)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 7.8,
+  "tags": [
+   "stat"
+  ],
+  "note": "compare[] → before/after bars (dataviz BarChart)"
+ },
+ {
+  "id": "scenes-stat-restaurant",
+  "name": "Stat scene — restaurant (hourglass)",
+  "nameBn": "স্ট্যাট scene — রেস্তোরাঁ (hourglass)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 9,
+  "still": 7,
+  "tags": [
+   "stat"
+  ],
+  "note": "unit HOURS → hourglass flips + hour counter"
+ },
+ {
+  "id": "scenes-persona-dental",
+  "name": "Persona — dentist, missed calls",
+  "nameBn": "পরিচয় — ডেন্টিস্ট, missed call",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 8.9,
+  "tags": [
+   "persona"
+  ],
+  "note": "<ScenePersona t dur cue data={{industry, name, role, business, problem:{kind:'missed-calls'|'queue'|'after-hours'|'unread', label, count, clock, items}, cues:{place,name,problem,peak}}}/>"
+ },
+ {
+  "id": "scenes-persona-restaurant",
+  "name": "Persona — restaurant, lunch queue",
+  "nameBn": "পরিচয় — রেস্তোরাঁ, দুপুরের লাইন",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10,
+  "still": 8.6,
+  "tags": [
+   "persona"
+  ],
+  "note": "<ScenePersona t dur cue data={{industry, name, role, business, problem:{kind:'missed-calls'|'queue'|'after-hours'|'unread', label, count, clock, items}, cues:{place,name,problem,peak}}}/>"
+ },
+ {
+  "id": "scenes-persona-ecommerce",
+  "name": "Persona — online seller, unread inbox",
+  "nameBn": "পরিচয় — online seller, unread inbox",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11,
+  "still": 9.6,
+  "tags": [
+   "persona"
+  ],
+  "note": "<ScenePersona t dur cue data={{industry, name, role, business, problem:{kind:'missed-calls'|'queue'|'after-hours'|'unread', label, count, clock, items}, cues:{place,name,problem,peak}}}/>"
+ },
+ {
+  "id": "scenes-persona-realestate",
+  "name": "Persona — property agent, closed after hours",
+  "nameBn": "পরিচয় — property agent, বন্ধের পরে",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11.5,
+  "still": 9.4,
+  "tags": [
+   "persona"
+  ],
+  "note": "<ScenePersona t dur cue data={{industry, name, role, business, problem:{kind:'missed-calls'|'queue'|'after-hours'|'unread', label, count, clock, items}, cues:{place,name,problem,peak}}}/>"
+ },
+ {
+  "id": "scenes-chat-ecommerce",
+  "name": "Chat — 2 AM order, auto-reply",
+  "nameBn": "চ্যাট — রাত ২টার অর্ডার, auto-reply",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12.5,
+  "still": 10.6,
+  "tags": [
+   "chat"
+  ],
+  "note": "<SceneChat t dur cue data={{industry, business, sign, clock, night, messages:[{from,text,time,cue}], replyTag, outcome:{label,cue}}}/>"
+ },
+ {
+  "id": "scenes-chat-dental",
+  "name": "Chat — 11 PM serial booking",
+  "nameBn": "চ্যাট — রাত ১১টার serial booking",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11,
+  "still": 9.8,
+  "tags": [
+   "chat"
+  ],
+  "note": "<SceneChat t dur cue data={{industry, business, sign, clock, night, messages:[{from,text,time,cue}], replyTag, outcome:{label,cue}}}/>"
+ },
+ {
+  "id": "scenes-points-dental",
+  "name": "Points — dental (4)",
+  "nameBn": "পয়েন্ট — ডেন্টাল (৪টা)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13,
+  "still": 11.6,
+  "tags": [
+   "points"
+  ],
+  "note": "ScenePoints({t,dur,cue,data:PointsData{industry,title,titleWord?,points:[{label,word,icon?,short?,text?}] 3–5}})"
+ },
+ {
+  "id": "scenes-points-restaurant",
+  "name": "Points — restaurant (3)",
+  "nameBn": "পয়েন্ট — রেস্তোরাঁ (৩টা)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12,
+  "still": 10.8,
+  "tags": [
+   "points"
+  ],
+  "note": "ScenePoints({t,dur,cue,data:PointsData{industry,title,titleWord?,points:[{label,word,icon?,short?,text?}] 3–5}})"
+ },
+ {
+  "id": "scenes-points-realestate",
+  "name": "Points — real estate (5)",
+  "nameBn": "পয়েন্ট — রিয়েল এস্টেট (৫টা)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13.5,
+  "still": 12.4,
+  "tags": [
+   "points"
+  ],
+  "note": "ScenePoints({t,dur,cue,data:PointsData{industry,title,titleWord?,points:[{label,word,icon?,short?,text?}] 3–5}})"
+ },
+ {
+  "id": "scenes-checklist-ecommerce",
+  "name": "Checklist — e-commerce (4)",
+  "nameBn": "চেকলিস্ট — ই-কমার্স (৪টা)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12.5,
+  "still": 11.4,
+  "tags": [
+   "checklist"
+  ],
+  "note": "SceneChecklist({t,dur,cue,data:ChecklistData{industry,title,titleWord?,items:[{label,word,icon?,text?}] 3–5,done?,doneWord?}})"
+ },
+ {
+  "id": "scenes-checklist-school",
+  "name": "Checklist — school (3)",
+  "nameBn": "চেকলিস্ট — স্কুল (৩টা)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11.5,
+  "still": 10.6,
+  "tags": [
+   "checklist"
+  ],
+  "note": "SceneChecklist({t,dur,cue,data:ChecklistData{industry,title,titleWord?,items:[{label,word,icon?,text?}] 3–5,done?,doneWord?}})"
+ },
+ {
+  "id": "scenes-steps-dental",
+  "name": "Steps scene — dental serial",
+  "nameBn": "ধাপ scene — dental serial",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11,
+  "still": 7.4,
+  "tags": [
+   "steps"
+  ],
+  "note": "<SceneSteps t dur cue data={{industry, title?, steps:[{label, cue?, icon?, text?, lines?, unit?, from?}] (3–5), doneLabel?, doneCue?}}/>"
+ },
+ {
+  "id": "scenes-steps-restaurant",
+  "name": "Steps scene — restaurant order",
+  "nameBn": "ধাপ scene — রেস্তোরাঁর order",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11,
+  "still": 9.2,
+  "tags": [
+   "steps"
+  ],
+  "note": "<SceneSteps t dur cue data={{industry, title?, steps:[{label, cue?, icon?, text?, lines?, unit?, from?}] (3–5), doneLabel?, doneCue?}}/>"
+ },
+ {
+  "id": "scenes-timeline-ecommerce",
+  "name": "Timeline scene — order to delivery (days)",
+  "nameBn": "সময়রেখা scene — order থেকে delivery",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12,
+  "still": 6.6,
+  "tags": [
+   "timeline"
+  ],
+  "note": "<SceneTimeline t dur cue data={{industry, unit:'DAY'|'WEEK'|'MONTH', total?, title?, stations:[{label, at, cue?, icon?, text?, lines?, pay?, payCue?}] (3–5)}}/>"
+ },
+ {
+  "id": "scenes-timeline-school",
+  "name": "Timeline scene — fee instalments (months)",
+  "nameBn": "সময়রেখা scene — কিস্তিতে ভর্তি fee",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11,
+  "still": 6.8,
+  "tags": [
+   "timeline",
+   "price"
+  ],
+  "note": "<SceneTimeline t dur cue data={{industry, unit:'DAY'|'WEEK'|'MONTH', total?, title?, stations:[{label, at, cue?, icon?, text?, lines?, pay?, payCue?}] (3–5)}}/>"
+ },
+ {
+  "id": "scenes-price-dental",
+  "name": "Price scene — dental",
+  "nameBn": "দামের scene — ডেন্টাল চেম্বার",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 14,
+  "still": 8.9,
+  "tags": [
+   "price"
+  ],
+  "note": "<ScenePrice t dur cue data={PriceData}/> — package opens → features → slider → receipt printer → ONE-TIME vs EVERY YEAR"
+ },
+ {
+  "id": "scenes-price-restaurant",
+  "name": "Price scene — restaurant",
+  "nameBn": "দামের scene — রেস্তোরাঁ",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 14,
+  "still": 9.2,
+  "tags": [
+   "price"
+  ],
+  "note": "same template, restaurant data (cloche emblem, 3 add-ons)"
+ },
+ {
+  "id": "scenes-compare-ecommerce",
+  "name": "Compare scene — e-commerce",
+  "nameBn": "তুলনার scene — অনলাইন shop (সস্তা offer বনাম proper build)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12,
+  "still": 9.6,
+  "tags": [
+   "compare"
+  ],
+  "note": "<SceneCompare t dur cue data={CompareData}/> — cards → balance → hidden costs drop on A → B checks → verdict"
+ },
+ {
+  "id": "scenes-compare-realestate",
+  "name": "Compare scene — real estate",
+  "nameBn": "তুলনার scene — real estate (ads বনাম SEO)",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12,
+  "still": 10.2,
+  "tags": [
+   "compare"
+  ],
+  "note": "same template: monthly ad spend piles up vs one-time SEO website"
+ },
+ {
+  "id": "scenes-faq-dental",
+  "name": "FAQ scene — dental (prices on site?)",
+  "nameBn": "FAQ scene — dental: দাম কি site-এ দেব?",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13,
+  "still": 10.8,
+  "tags": [
+   "faq"
+  ],
+  "note": "<SceneFaq t dur cue data={FaqData}/> — question bubble from customer → phone app answer + reply bubble + tick chips → ? flips to tick"
+ },
+ {
+  "id": "scenes-faq-ecommerce",
+  "name": "FAQ scene — e-commerce (delivery outside Dhaka?)",
+  "nameBn": "FAQ scene — e-commerce: Dhaka-র বাইরে delivery?",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13.5,
+  "still": 11.2,
+  "tags": [
+   "faq"
+  ],
+  "note": "industry: dental | restaurant | ecommerce | school — object, app colours and icon change with data.industry"
+ },
+ {
+  "id": "scenes-myth-restaurant",
+  "name": "Myth scene — restaurant (a Facebook page is enough)",
+  "nameBn": "Myth scene — restaurant: Facebook page-ই যথেষ্ট?",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13.5,
+  "still": 12,
+  "tags": [
+   "myth"
+  ],
+  "note": "<SceneMyth t dur cue data={MythData}/> — MYTH card stamped → cracks and breaks on cue → FACT card rises, phone proof + count-up stat card"
+ },
+ {
+  "id": "scenes-myth-school",
+  "name": "Myth scene — school (small centres don't need a site)",
+  "nameBn": "Myth scene — school: ছোট coaching-এর website লাগে না?",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13.5,
+  "still": 12.2,
+  "tags": [
+   "myth"
+  ],
+  "note": "stat string count-up: '2x', '+45%', '120', '৳ 3,000' — number part animates"
+ },
+ {
+  "id": "scenes-before_after-restaurant",
+  "name": "Before/After — restaurant",
+  "nameBn": "আগে/পরে — রেস্তোরাঁ",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 12,
+  "still": 10.8,
+  "tags": [
+   "before_after"
+  ],
+  "note": "<SceneBeforeAfter t dur cue data={{industry, name?, missed, missedKind?, gained, gainedUnit?, cues:{before,missed,after,customers,orders}}}/>"
+ },
+ {
+  "id": "scenes-before_after-ecommerce",
+  "name": "Before/After — online shop",
+  "nameBn": "আগে/পরে — online shop",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 11.5,
+  "still": 10.2,
+  "tags": [
+   "before_after"
+  ],
+  "note": "<SceneBeforeAfter t dur cue data={{industry, name?, missed, missedKind?, gained, gainedUnit?, cues:{before,missed,after,customers,orders}}}/>"
+ },
+ {
+  "id": "scenes-before_after-dental",
+  "name": "Before/After — dental chamber",
+  "nameBn": "আগে/পরে — dental chamber",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 10.5,
+  "still": 9.4,
+  "tags": [
+   "before_after"
+  ],
+  "note": "<SceneBeforeAfter t dur cue data={{industry, name?, missed, missedKind?, gained, gainedUnit?, cues:{before,missed,after,customers,orders}}}/>"
+ },
+ {
+  "id": "scenes-cta-dental",
+  "name": "CTA — dental chamber",
+  "nameBn": "CTA — dental chamber",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 14,
+  "still": 13.8,
+  "tags": [
+   "cta"
+  ],
+  "note": "<SceneCta t dur cue data={{industry, noun?, phone?, url?, path?, address?, digitWords?, bnWeb?, cues:{quote,free,call,whatsapp,number,url,dot,brand,address}}}/>"
+ },
+ {
+  "id": "scenes-cta-school",
+  "name": "CTA — coaching centre",
+  "nameBn": "CTA — coaching centre",
+  "group": "scenes",
+  "kind": "scene",
+  "duration": 13.5,
+  "still": 13.3,
+  "tags": [
+   "cta"
+  ],
+  "note": "<SceneCta t dur cue data={{industry, noun?, phone?, url?, path?, address?, digitWords?, bnWeb?, cues:{quote,free,call,whatsapp,number,url,dot,brand,address}}}/>"
+ }
+]

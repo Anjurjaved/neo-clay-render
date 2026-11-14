@@ -1,0 +1,42 @@
+{
+  "name": "neo-clay-render",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NEO clay 3D motion library renderer",
+  "scripts": {
+    "render": "node tools/ci_render.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
+    "@remotion/animation-utils": "^4.0.481",
+    "@remotion/effects": "^4.0.481",
+    "@remotion/layout-utils": "^4.0.481",
+    "@remotion/lottie": "4.0.481",
+    "@remotion/media-utils": "4.0.481",
+    "@remotion/motion-blur": "^4.0.481",
+    "@remotion/noise": "^4.0.481",
+    "@remotion/paths": "^4.0.481",
+    "@remotion/shapes": "4.0.481",
+    "@remotion/three": "^4.0.481",
+    "@remotion/transitions": "4.0.481",
+    "@turf/turf": "^7.3.5",
+    "@types/three": "^0.184.1",
+    "lottie-web": "5.12.2",
+    "maplibre-gl": "^5.24.0",
+    "opentype.js": "^2.0.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.481",
+    "three": "^0.184.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.481",
+    "@types/opentype.js": "^1.3.10",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "typescript": "5.5.4"
+  }
+}
