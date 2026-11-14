@@ -227,7 +227,7 @@ export const EcommerceSite: React.FC<SiteProps> = ({ mode, scroll = 0, reveal = 
   ];
   const subtotal = cartItems.reduce((a, c) => a + c.p * c.q, 0);
   const summary = (
-    <div style={{ background: SAND, borderRadius: 22, padding: m ? 18 : 24, width: m ? undefined : 330, boxSizing: "border-box", alignSelf: "flex-start" }}>
+    <div style={{ background: SAND, borderRadius: 22, padding: m ? 18 : 24, width: m ? "100%" : 330, boxSizing: "border-box", alignSelf: "flex-start" }}>
       {[
         ["Subtotal", money(subtotal)],
         ["Delivery (Inside Dhaka)", "৳70"],

@@ -115,7 +115,7 @@ const ChecklistShow: React.FC = () => {
   const items = ["Domain & hosting", "Mobile-first design", "Google Maps listing", "SEO setup", "Fast loading"];
   return (
     <Stage cam={camUp}>
-      <group position={[0, FL + 2.0 * 0.8, 0]} rotation={[-0.1, -0.3 + drift(t, 6) * 0.03, (1 - e) * 0.15]} scale={(0.6 + 0.4 * e) * 0.8}>
+      <group position={[0, FL + 2.45 * 0.8, 0]} rotation={[-0.1, -0.3 + drift(t, 6) * 0.03, (1 - e) * 0.15]} scale={(0.6 + 0.4 * e) * 0.8}>
         <Checklist items={items} ages={checklistAges(t, items.length, 0.8, 0.5)} />
       </group>
     </Stage>

@@ -14,7 +14,7 @@ export const TOWER = { w: 2.3, h: 5.1, d: 1.9 };
 const COLS = [-0.78, -0.26, 0.26, 0.78];
 const ROWS = Array.from({ length: 8 }, (_, i) => 1.5 + i * 0.4);
 const WIN = { w: 0.32, h: 0.25, r: 0.06 };
-const LOBBY = { w: 1.0, h: 1.0, y0: 0.08 };
+const LOBBY = { w: 1.0, h: 1.0, y0: 0.16 }; // hole outer boundary ছোঁবে না (earcut)
 
 const holeAt = (cx: number, cy: number, w: number, h: number, r: number) => {
   // path ঘড়ির কাঁটার উল্টো দিকে নয় — hole-এর জন্য বিপরীত winding

@@ -164,7 +164,7 @@ export const SceneChecklist: React.FC<{ t: number; dur: number; cue: Cue; data: 
 
   // ---------- layout ----------
   const H = boardH(n);
-  const BASE = atFloor(0.5, 0.735, cam); // board-এর নিচের কিনারা floor-এ
+  const BASE = atFloor(0.5, 0.905, cam); // কাছে (z≈7.7) — নিচের floor অংশ ভরে, উপরে hero zone বড় (D13) // board-এর নিচের কিনারা floor-এ
   const s = worldWidth(0.86, BASE[2], cam) / BW;
   const LEAN = -0.1;
   const toWorld = (lx: number, ly: number, lz: number): V3 => {
@@ -172,8 +172,8 @@ export const SceneChecklist: React.FC<{ t: number; dur: number; cue: Cue; data: 
     return [BASE[0] + v.x, FLOOR + 0.04 + v.y, BASE[2] + v.z];
   };
   const topScr = toScreen(toWorld(0, H / 2 + 0.35, 0.2), cam)[1];
-  const heroY = Math.max(0.085, topScr * 0.5);
-  const heroFrac = Math.min(0.3, (topScr - 0.03) * 1.25);
+  const heroY = Math.max(0.09, topScr * 0.47);
+  const heroFrac = Math.min(0.4, (topScr - 0.06) * 1.05);
   const HZ = 2;
   const heroPos: V3 = atScreen(0.5, heroY, HZ, cam);
   const heroW = worldWidth(heroFrac, HZ, cam);
@@ -258,10 +258,10 @@ export const SceneChecklist: React.FC<{ t: number; dur: number; cue: Cue; data: 
       {/* done: emblem + tag */}
       {data.done && (
         <>
-          <Life t={t} a={tDone} b={OUT} kind="pop" position={[heroPos[0] - heroW * 0.75, heroPos[1], heroPos[2]]} scale={heroW * 0.85}>
+          <Life t={t} a={tDone} b={OUT} kind="pop" position={[heroPos[0], heroPos[1] + heroW * 0.14, heroPos[2]]} scale={heroW * 0.72}>
             <Icon3D kind={pr.emblem} t={t - tDone} accent={pr.accent} accent2={pr.accent2} />
           </Life>
-          <Life t={t} a={tDone + 0.12} b={OUT} kind="pop" position={[heroPos[0] + heroW * 0.55, heroPos[1], heroPos[2] + 0.3]} scale={worldWidth(Math.min(0.5, data.done.length * 0.03 + 0.08), HZ, cam) / (data.done.length * 0.3 * 0.66 + 0.6)} rotation={[0, 0, -0.06 + wobble(t - tDone - 0.15, 0.08, 1.6, 0.15)]}>
+          <Life t={t} a={tDone + 0.12} b={OUT} kind="pop" position={[heroPos[0], heroPos[1] - heroW * 0.36, heroPos[2] + 0.6]} scale={worldWidth(Math.min(0.5, data.done.length * 0.03 + 0.08), HZ, cam) / (data.done.length * 0.3 * 0.66 + 0.6)} rotation={[0, 0, -0.06 + wobble(t - tDone - 0.15, 0.08, 1.6, 0.15)]}>
             <SoftPanel w={data.done.length * 0.3 * 0.66 + 0.6} h={0.78} thick={0.22} color="#1F9D55">
               <Txt size={0.3} color="#ffffff" position={[0, -0.01, 0.02]}>
                 {data.done}

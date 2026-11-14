@@ -56,7 +56,7 @@ const Drum: React.FC<{ pos: number; accent?: boolean }> = ({ pos, accent }) => {
         const a = d * ((Math.PI * 2) / 10);
         return (
           <group key={d} rotation={[a, 0, 0]}>
-            <Txt size={0.56} color={accent ? C.deepOrange : C.deepNavy} position={[0, -0.02, R + 0.04]}>
+            <Txt size={0.56} color={accent ? C.deepOrange : C.deepNavy} position={[0, -0.02, R + 0.05]}>
               {String(d)}
             </Txt>
           </group>

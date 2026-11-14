@@ -142,8 +142,9 @@ export const Funnel: React.FC<
         const [rb, rt] = RADII[i];
         const drop = (1 - k) * 1.8;
         const sq = Math.max(-0.12, Math.min(0.12, (k - 1) * 0.8));
-        const midR = (rb + rt) / 2 + WALL / 2 + 0.012;
         const slant = Math.atan2(rt - rb, TH);
+        // slant করা তলের বাইরের পিঠ: অনুভূমিক দূরত্ব = (wall/2)/cos(slant) — শুধু wall/2 নিলে লেখা তলের ভেতরে ঢুকে যায়
+        const midR = (rb + rt) / 2 + WALL / 2 / Math.cos(slant) + 0.035;
         const shown = Math.round(tr.value * Math.max(0, Math.min(1, count)));
         return (
           <group key={i} position={[0, tierY(i) + drop, 0]} scale={[1 - sq * 0.5, 1 + sq, 1 - sq * 0.5]}>

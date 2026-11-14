@@ -109,7 +109,7 @@ export const CTxt: React.FC<{
       rotation={rotation as any}
       anchorX={anchorX}
       anchorY={anchorY}
-      {...({ curveRadius: curve } as any)}
+      {...({ curveRadius: curve, glyphGeometryDetail: curve ? 4 : 1 } as any)}
       letterSpacing={letterSpacing}
       fillOpacity={opacity}
       onSync={() => {

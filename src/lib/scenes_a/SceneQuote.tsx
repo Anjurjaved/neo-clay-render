@@ -139,7 +139,7 @@ export const SceneQuote: React.FC<{ t: number; dur: number; cue: Cue; data: Quot
 
   // ---------- problem items ----------
   const nP = Math.max(1, Math.min(pr.kind === "pile" ? 12 : 10, pr.n));
-  const itemS = worldWidth(pr.kind === "pile" ? 0.105 : 0.1, OP[2], cam);
+  const itemS = worldWidth(pr.kind === "pile" ? 0.105 : 0.13, OP[2], cam);
   const stagger = Math.min(0.3, Math.max(0.12, (E - 0.8 - tProb) / (nP + 2)));
   const items: React.ReactNode[] = [];
   let arrived = 0,
@@ -208,15 +208,15 @@ export const SceneQuote: React.FC<{ t: number; dur: number; cue: Cue; data: Quot
       } else {
         // দরজায় ধাক্কা → সামনে-ডানে ছিটকে floor-এ পড়ে, লাফায়, তারপর ডুবে যায়
         const tb = (u - 1) * fly;
-        const vx = (0.35 + hash(i, 7) * 0.6) * sS,
-          vz = (1.6 + hash(i, 4) * 0.8) * sS,
-          vy = 1.4 * sS;
-        const g = 9 * sS;
+        const vx = (0.9 + hash(i, 7) * 1.5) * itemS,
+          vz = (2.2 + hash(i, 4) * 1.4) * itemS,
+          vy = 2.6 * itemS;
+        const g = 11 * itemS;
         const restY = FLOOR + itemS * 0.38;
         const tLand = (vy + Math.sqrt(vy * vy + 2 * g * Math.max(0, door.y - restY))) / g;
         const tt = Math.min(tb, tLand);
         let y = Math.max(restY, door.y + vy * tb - 0.5 * g * tb * tb);
-        if (tb > tLand) y = restY + Math.abs(Math.sin((tb - tLand) * 7)) * 0.25 * sS * Math.exp(-(tb - tLand) * 5);
+        if (tb > tLand) y = restY + Math.abs(Math.sin((tb - tLand) * 7)) * 0.35 * itemS * Math.exp(-(tb - tLand) * 5);
         pos = new THREE.Vector3(door.x + vx * tt, y, door.z + vz * tt);
         rotZ = -tt * 4;
         const sink = range(tb, tLand + 0.9, tLand + 1.5);
@@ -237,8 +237,9 @@ export const SceneQuote: React.FC<{ t: number; dur: number; cue: Cue; data: Quot
   const keptShown = keptN ? Math.round((keptNow / keptN) * (pr.keptCount ?? keptN)) : 0;
   const label = pr.label.replace("{n}", String(nShown)).replace("{kept}", String(keptShown));
   const tagW = Math.max(2.6, label.length * 0.2 + 0.7);
-  const TP = atFloor(0.34, 0.885, cam);
-  const tagS = worldWidth(0.5, TP[2], cam) / tagW;
+  const tagFrac = Math.min(0.86, 0.08 + label.length * 0.026);
+  const TP = atFloor(Math.max(0.34, 0.5 - (0.86 - tagFrac) * 0.6), 0.885, cam);
+  const tagS = worldWidth(tagFrac, TP[2], cam) / tagW;
 
   const camLive: Cam = { ...cam, pos: [cam.pos[0] + 0.05 * drift(t, 1), cam.pos[1] + 0.04 * drift(t, 3), cam.pos[2] - 0.55 * smoothstep(0, dur, t)] };
 

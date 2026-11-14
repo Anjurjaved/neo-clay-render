@@ -23,6 +23,7 @@ import {
   mixPose,
   withArm,
   armHoldCup,
+  armRest,
   armHoldSelf,
   armWave,
   armPoint,
@@ -36,7 +37,6 @@ import { Held, Stool, Desk, Laptop, laptopScreen, Counter, Keyboard, Monitor, Be
 import { CodeEditor } from "./screens";
 import { Crowd, planCrowd } from "./Crowd";
 import { SpeechBubble, ThoughtBubble } from "./Bubbles";
-import { capGeo } from "./outfits";
 
 const useT = () => useCurrentFrame() / FPS;
 const ss = (a: number, b: number, t: number) => smoothstep(a, b, t);
@@ -112,10 +112,11 @@ const CustomerShow: React.FC = () => {
   const look = 1 - ss(2.5, 2.95, t);
   p = withArm(p, "R", armHoldSelf("R", 0.004 * Math.sin(t * 1.7)));
   p = { ...p, armL: { ...p.armL, grip: 0.9, palm: [-1, 0, 0.1] }, nod: lerp(p.nod - 0.03, hp.nod, look), lean: p.lean + 0.03 * look };
-  const kc = ss(3.15, 3.5, t);
-  const ch = cheer(t - 3.15, kc);
-  p = withArm(p, "R", { ...armCheer("R", 0), grip: 0.6 }, kc);
-  p = { ...p, y: p.y + (ch.y + 0.01 * kc) * kc, nod: lerp(p.nod, -0.12, kc), legL: kc > 0 ? { ...p.legL, t: [p.legL.t[0], ch.legL.t[1], p.legL.t[2]] } : p.legL, legR: kc > 0 ? { ...p.legR, t: [p.legR.t[0], ch.legR.t[1], p.legR.t[2]] } : p.legR };
+  // stop → look up → phone hand drops to the side (still gripped) + a small happy bounce
+  const kd = ss(3.0, 3.45, t);
+  p = withArm(p, "R", { ...armRest("R"), grip: 0.5, dir: [-0.05, -1, 0.25], palm: [1, 0, 0.2] }, kd);
+  const hop = Math.max(0, Math.sin((t - 3.5) * 9)) * 0.03 * win(t, 3.5, 3.6, 4.3, 4.5);
+  p = { ...p, y: p.y + hop, nod: lerp(p.nod, -0.06, kd), tilt: lerp(p.tilt, 0.1, kd) };
   const rotY = lerp(0.35, 1.2, k);
   const sw = 0.25 * Math.sin((w.dist / s / 0.62) * Math.PI * 2 + 1.2) * k;
   return (
@@ -261,27 +262,7 @@ const BubblesShow: React.FC = () => {
   );
 };
 
-const DebugShow: React.FC = () => {
-  return (
-    <Stage cam={{ pos: [0, 0.6, 6.0], target: [0, 0.0, 0], fov: 26 }}>
-      <mesh geometry={capGeo()} position={[-0.6, 0.6, 0]} scale={3}>
-        <meshStandardMaterial color="orange" />
-      </mesh>
-      <mesh position={[-0.6, 0.0, 0.8]}>
-        <sphereGeometry args={[0.1, 16, 12]} />
-        <meshStandardMaterial color="red" />
-      </mesh>
-      <mesh position={[0.4, 0.0, 0]}>
-        <sphereGeometry args={[0.1, 16, 12]} />
-        <meshStandardMaterial color="blue" />
-      </mesh>
-      <Character pose={stand(0)} role="customer" position={[0.6, -1.6, 0]} rotationY={0} scale={1.6} />
-    </Stage>
-  );
-};
-
 export const ITEMS: LibItem[] = [
-  { id: "characters-zdebug", name: "debug", nameBn: "debug", group: "characters", kind: "component", duration: 2, still: 0.5, Comp: DebugShow },
   { id: "characters-owner", name: "Business owner", nameBn: "ব্যবসার মালিক", group: "characters", kind: "component", duration: 5.6, still: 2.9, tags: ["persona", "title", "answer", "cta", "steps"], note: "<Character role='owner' pose={walk|wave|point…} holdL={<Held kind='cup' side='L'/>}/> — collar + tie, coffee cup in hand", Comp: OwnerShow },
   { id: "characters-doctor", name: "Doctor", nameBn: "ডাক্তার", group: "characters", kind: "component", duration: 5.2, still: 2.4, tags: ["persona", "answer", "faq", "quote"], note: "role='doctor' — fused lab coat (sleeves follow arms) + stethoscope; holdL clipboard; think/point poses", Comp: DoctorShow },
   { id: "characters-customer", name: "Customer", nameBn: "কাস্টমার", group: "characters", kind: "component", duration: 5, still: 1.5, tags: ["persona", "chat", "before_after", "cta"], note: "role='customer' — cap; walk while holding a phone (holdR phone) + shopping bag (holdL bag)", Comp: CustomerShow },

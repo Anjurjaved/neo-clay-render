@@ -412,7 +412,7 @@ const hourglass: IconDef = {
 // 19 megaphone — revolved about x, hollow bell, handle
 const megaP = latheProfile(smoothPoly([0, -0.82, 0.17, -0.82, 0.2, -0.75, 0.2, -0.45, 0.28, -0.1, 0.42, 0.25, 0.6, 0.6, 0.66, 0.68, 0.64, 0.75, 0, 0.75], 5));
 const megaCav = (x: number, y: number, z: number) => roundCone(x, y, z, 0.86, 0, 0, -0.12, 0, 0, 0.56, 0.1);
-const megaHandle = (x: number, y: number, z: number) => capsule(x, y, z, -0.3, -0.2, 0, -0.4, -0.62, 0, 0.085);
+const megaHandle = (x: number, y: number, z: number) => roundCone(x, y, z, -0.28, -0.1, 0, -0.38, -0.56, 0, 0.12, 0.095);
 const megaphone: IconDef = {
   key: "megaphone",
   color: P.orange,
@@ -421,7 +421,7 @@ const megaphone: IconDef = {
   sdf: (x, y, z) => {
     let d = poly2(len2(y, z), x, megaP) - 0.025;
     d = ssub(d, megaCav(x, y, z), 0.05);
-    return smin(d, megaHandle(x, y, z), 0.08);
+    return smin(d, megaHandle(x, y, z), 0.13);
   },
   paint: (x, y, z) => [inside(megaCav(x, y, z) - 0.03, 0.02), y < -0.15 ? inside(megaHandle(x, y, z) - 0.015, 0.02) : 0],
 };

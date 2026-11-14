@@ -169,8 +169,8 @@ const tickGeo = () => {
 const Chat: React.FC<{ act: number; t: number; accent: string; text?: string }> = ({ act, t, accent, text = "HI!" }) => {
   const g = useMemo(bubbleGeo, []);
   const tk = useMemo(tickGeo, []);
-  const typing = 1 - smoothstep(0.5, 0.62, act);
-  const msg = smoothstep(0.52, 0.6, act);
+  const typing = 1 - smoothstep(0.42, 0.5, act);
+  const msg = smoothstep(0.5, 0.58, act);
   const fs = Math.min(0.24, 1.2 / Math.max(3, text.length * 0.64));
   return (
     <group>
@@ -238,7 +238,7 @@ const Search: React.FC<{ act: number; t: number; accent: string }> = ({ act, t, 
     my = Math.sin(a) * 0.18 * sweep + 0.08 * (1 - sweep);
   const found = springStep((act - 0.62) * 2.2, { k: 230, c: 14 });
   return (
-    <group>
+    <group position={[-0.1, 0.18, 0]} scale={0.86}>
       {act > 0.6 && (
         <group position={[0, -0.32, -0.25]} scale={0.62 * found}>
           <mesh geometry={pg} castShadow>
@@ -436,7 +436,7 @@ const Cloche: React.FC<{ act: number; t: number }> = ({ act, t }) => {
   );
   const food = useMemo(foodGeo, []);
   const lift = smoothstep(0.12, 0.5, act);
-  const dy = lift * 0.95 + wobble((act - 0.5) * 3, 0.06, 1.2, 0.2);
+  const dy = lift * 0.5 + wobble((act - 0.5) * 3, 0.06, 1.2, 0.2);
   return (
     <group position={[0, -0.35, 0]}>
       <mesh geometry={plate} castShadow receiveShadow>
@@ -456,7 +456,7 @@ const Cloche: React.FC<{ act: number; t: number }> = ({ act, t }) => {
             </mesh>
           );
         })}
-      <group position={[lift * 0.45, 0.08 + dy, -lift * 0.15]} rotation={[0, 0, -lift * 0.55]}>
+      <group position={[lift * 0.62, 0.08 + dy, -lift * 0.3]} rotation={[0, 0, -lift * 0.85]}>
         <mesh geometry={dome} castShadow receiveShadow>
           <meshPhysicalMaterial color="#DDE1E6" metalness={0.92} roughness={0.22} clearcoat={0.5} clearcoatRoughness={0.15} envMapIntensity={1.2} side={THREE.DoubleSide} />
         </mesh>

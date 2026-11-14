@@ -115,7 +115,6 @@ export const RealEstateSite: React.FC<SiteProps> = ({ mode, scroll = 0, reveal =
         <span style={{ color: P }}>Buy</span>
         <span>Ongoing</span>
         <span>Ready Flats</span>
-        <span>Land Owners</span>
         <span>About</span>
       </div>
       <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, fontSize: 16, fontWeight: 800, color: PD }}>

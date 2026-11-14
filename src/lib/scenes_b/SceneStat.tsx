@@ -118,17 +118,18 @@ export const SceneStat: React.FC<{ t: number; dur: number; cue: Cue; data: StatD
     // hourglass: উল্টে যায়, বালি ঝরে; পাশে ঘণ্টা গোনা panel
     const flip = tween(t, T.value - 0.1, T.value + 0.55, 0, Math.PI, emphDecel);
     const flow = range(t, T.value + 0.5, OUT);
-    const hp = atScreen(0.33, 0.47, 0, cam);
+    const hp = atScreen(0.33, 0.63, 0, cam);
     const hs = (worldWidth(1, 0, cam) * (1920 / 1080) * 0.27) / HOURGLASS_H;
     const cnt = Math.round(tween(t, T.value + 0.1, T.value + 1.2, 0, data.value, emphDecel));
-    const pp = atScreen(0.7, 0.42, 0.5, cam);
+    const pp = atScreen(0.71, 0.48, 0.5, cam);
     const ps = worldWidth(0.4, 0.5, cam) / 2.2;
     main = (
       <>
         <Life t={t} a={T.label + 0.25} b={OUT} position={hp} scale={hs}>
-          <group position={[0, HOURGLASS_H / 2, 0]} rotation={[0, 0.4 * t, flip]}>
+          {/* state(top a, bottom b) θ-তে ঘোরানো == state(top b, bottom a) θ−π-তে — তাই অর্ধেক পেরোলে swap, শেষে rotation 0 */}
+          <group position={[0, HOURGLASS_H / 2, 0]} rotation={[0, 0.4 * t, flip <= Math.PI / 2 ? flip : flip - Math.PI]}>
             <group position={[0, -HOURGLASS_H / 2, 0]}>
-              <Hourglass top={flip < 1.6 ? 0.25 : 1 - 0.75 * flow} bottom={flip < 1.6 ? 0.75 : 0.12 + 0.75 * flow} stream={flip > Math.PI * 0.95} />
+              <Hourglass top={flip <= Math.PI / 2 ? 0.25 : 0.75 * (1 - flow) + 0.04} bottom={flip <= Math.PI / 2 ? 0.75 : 0.25 + 0.65 * flow} stream={flip > Math.PI * 0.97 && flow < 0.98} />
             </group>
           </group>
         </Life>

@@ -144,7 +144,7 @@ const collarGeo = () =>
     return polygonize(ops, 0.004);
   });
 
-export const capGeo = () =>
+const capGeo = () =>
   baked("cap", () => {
     const ops: Op[] = [
       { t: "ell", c: [0, 0.012, 0], B: IDB, r: [0.188, 0.19, 0.182] },

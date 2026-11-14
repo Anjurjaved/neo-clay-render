@@ -8,7 +8,7 @@ import { springStep, wobble, tween, range, emphDecel, expoOut } from "../../kit/
 import { C } from "../../kit/theme";
 import { Storefront, STORE, RoofPlinth } from "./Storefront";
 import { OfficeTower, TOWER } from "./OfficeTower";
-import { Molar, PharmacyCross, Cloche, TeeOnHanger, Tree } from "./signs";
+import { Molar, PharmacyCross, Cloche, TeeOnHanger, Tree, HangerStand } from "./signs";
 import { PolishedClay, Satin } from "./mats";
 import { bakeSDF, sdRoundBox, smin, smax } from "./sdf";
 
@@ -131,7 +131,7 @@ const pop = (t: number, t0: number) => {
 };
 
 const SP = 2.55; // দোকানের মাঝের দূরত্ব
-export const Street: React.FC<{ t: number; position?: [number, number, number]; scale?: number; rotationY?: number }> = ({ t, position = [0.2, -2.2, -1.5], scale = 0.62, rotationY = 0.5 }) => {
+export const Street: React.FC<{ t: number; position?: [number, number, number]; scale?: number; rotationY?: number }> = ({ t, position = [0.2, -2.2, -1.5], scale = 0.5, rotationY = 0.5 }) => {
   const road = useMemo(() => flatSlab(22, 2.3, 0.06, 0.4, 0.025), []);
   const walk = useMemo(() => flatSlab(22, 1.1, 0.16, 0.3, 0.05), []);
   const dash = useMemo(() => flatSlab(0.8, 0.12, 0.085, 0.06, 0.012), []);
@@ -148,15 +148,15 @@ export const Street: React.FC<{ t: number; position?: [number, number, number]; 
   const spin = (carX + 11) / R;
   return (
     <group position={position} rotation={[0, rotationY, 0]} scale={scale}>
-      <mesh geometry={road} position={[0, 0, 2.5]} receiveShadow>
+      <mesh geometry={road} position={[0, 0, 3.0]} receiveShadow>
         <ClayMat color="#8C96A3" rough={0.8} />
       </mesh>
       {Array.from({ length: 12 }).map((_, i) => (
-        <mesh key={i} geometry={dash} position={[-10 + i * 1.8, 0, 2.5]} receiveShadow>
+        <mesh key={i} geometry={dash} position={[-10 + i * 1.8, 0, 3.0]} receiveShadow>
           <ClayMat color="#F7F3EC" rough={0.6} />
         </mesh>
       ))}
-      <mesh geometry={walk} position={[0, 0, 0.98 + 0.4]} receiveShadow castShadow>
+      <mesh geometry={walk} position={[0, 0, 1.48]} receiveShadow castShadow>
         <ClayMat color="#EDE4D8" />
       </mesh>
       {/* দোকান */}
@@ -189,7 +189,7 @@ export const Street: React.FC<{ t: number; position?: [number, number, number]; 
                   {i === 1 && (
                     <>
                       <RoofPlinth w={1.1} />
-                      <Cloche position={[0, 0.1, 0.05]} scale={0.85} steam={range(t, 2.6, 3.2)} time={t} />
+                      <Cloche position={[0, 0.1, 0.05]} scale={0.85} lift={springStep(t - 2.5, { k: 120, c: 9 })} steam={range(t, 2.7, 3.3)} time={t} />
                     </>
                   )}
                   {i === 2 && (
@@ -202,14 +202,19 @@ export const Street: React.FC<{ t: number; position?: [number, number, number]; 
                       <PharmacyCross position={[0, 0.64, 0.05]} rotation={[0, t * 0.6, 0]} lit={range(t, 2.4, 2.9)} />
                     </>
                   )}
-                  {i === 3 && <TeeOnHanger position={[0, 1.05, 0.05]} color="#F5952B" swing={wobble(t - 1.7, 0.25, 0.9, 0.12)} twist={0.2} />}
+                  {i === 3 && (
+                    <>
+                      <RoofPlinth w={0.5} position={[-0.55, 0, 0]} />
+                      <HangerStand x={-0.55} />
+                      <TeeOnHanger position={[0.12, 1.26, 0]} scale={0.82} color="#F5952B" swing={wobble(t - 1.7, 0.25, 0.9, 0.12)} twist={0.2} />
+                    </>
+                  )}
                 </group>
               )
             }
           />
         );
       })}
-      {/* clothing tee-র জন্য ছোট বাঁকা খুঁটি (roof-এ) — popped সঙ্গে */}
       {/* office tower শেষে */}
       {(() => {
         const [sx, sy] = pop(t, 0.15 + 4 * 0.22);
@@ -224,7 +229,7 @@ export const Street: React.FC<{ t: number; position?: [number, number, number]; 
         );
       })()}
       {/* lamp posts + গাছ ফুটপাতে */}
-      {[-6.4, -6.4 + SP, -6.4 + SP * 2, -6.4 + SP * 3, -6.4 + SP * 4].map((x, i) => {
+      {[-3.85, -3.85 + SP, -3.85 + SP * 2, -3.85 + SP * 3].map((x, i) => {
         const [sx, sy] = pop(t, 0.5 + i * 0.18);
         return (
           <group key={i} position={[x, 0.16, 1.75]} scale={[sx, sy, sx]}>
@@ -232,7 +237,7 @@ export const Street: React.FC<{ t: number; position?: [number, number, number]; 
           </group>
         );
       })}
-      <ClayCar position={[carX, 0.06, 3.0]} spin={spin} bounce={Math.abs(Math.sin(carX * 3)) * 0.008} />
+      <ClayCar position={[carX, 0.06, 3.5]} spin={spin} bounce={Math.abs(Math.sin(carX * 3)) * 0.008} />
     </group>
   );
 };

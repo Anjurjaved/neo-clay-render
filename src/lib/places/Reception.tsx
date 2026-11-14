@@ -130,14 +130,14 @@ export const Reception: React.FC<{
           <ClayMat color="#E3D9CC" />
         </mesh>
       ))}
-      <DeskMonitor position={[-0.55, workH + 0.035, -0.12]} rotationY={Math.PI + 0.35} on={screenOn} />
+      <DeskMonitor position={[-0.55, workH + 0.035, -0.12]} rotationY={0.35} on={screenOn} />
       {/* ledge-এর উপর bell, গাছ */}
-      <ServiceBell position={[0.62, frontH + 0.07, 0.3]} scale={0.9} press={bellPress} ring={bellRing} />
+      <ServiceBell position={[0.88, frontH + 0.07, 0.3]} scale={0.9} press={bellPress} ring={bellRing} />
       <PottedPlant position={[-0.95, frontH + 0.07, 0.24]} scale={0.7} />
       {/* receptionist + chair */}
-      <OfficeChair position={[0.15, 0, -0.75]} rotationY={0.1} />
+      <OfficeChair position={[0.05, 0, -1.05]} rotationY={0.1} />
       {p > 0.001 && (
-        <group position={[0.15, 0.22, -0.55]} scale={[p, p, p]}>
+        <group position={[0.05, 0.42, -0.78]} scale={[p, p, p]}>
           <Figure scale={1.32} rotationY={0} coat="#F5F2EC" color={C.figure} pose={{ armOut: [0.55, 0.55 + raise * 2.1 + waveA] }} headTilt={Math.sin(time * 1.4) * 0.05} />
         </group>
       )}

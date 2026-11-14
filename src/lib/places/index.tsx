@@ -1,6 +1,5 @@
 // places group — showcase item (প্রতিটা নিজে <Stage> render করে; t = নিজের সেকেন্ড)
 import React from "react";
-import * as THREE from "three";
 import { useCurrentFrame } from "remotion";
 import { LibItem } from "../types";
 import { Stage, atFloor, worldWidth, DEFAULT_CAM, Cam } from "../../kit/Stage";
@@ -8,7 +7,7 @@ import { FPS } from "../../kit/time";
 import { springStep, wobble, tween, range, expoOut, emphDecel, smoothstep } from "../../kit/anim";
 import { C } from "../../kit/theme";
 import { Storefront, STORE, RoofPlinth } from "./Storefront";
-import { Molar, PharmacyCross, TeeOnHanger, Tee, Cloche, PottedPlant } from "./signs";
+import { Molar, PharmacyCross, TeeOnHanger, Tee, Cloche, PottedPlant, HangerStand } from "./signs";
 import { OfficeTower, TOWER } from "./OfficeTower";
 import { Reception } from "./Reception";
 import { Street } from "./Street";
@@ -145,8 +144,8 @@ const ClothingShow: React.FC = () => {
         return (
           <>
             <RoofPlinth w={0.6} position={[-0.55, 0, 0]} />
-            <RoofStand x={-0.55} />
-            <group position={[0.02, 1.26 + d.y, 0.0]} scale={d.s * 0.82}>
+            <HangerStand x={-0.55} />
+            <group position={[0.12, 1.26 + d.y, 0.0]} scale={d.s * 0.82}>
               <TeeOnHanger color="#F5952B" swing={sw} twist={0.25 + Math.sin(t * 1.1) * 0.08} />
             </group>
           </>
@@ -155,25 +154,6 @@ const ClothingShow: React.FC = () => {
     />
   );
 };
-/** clothing roof stand: satin L-pole (একটা বাঁকা tube) যার ডগায় hanger ঝোলে */
-const RoofStand: React.FC<{ x: number }> = ({ x }) => {
-  const geo = React.useMemo(() => {
-    const c = new THREE.CatmullRomCurve3([
-      new THREE.Vector3(x, 0.05, 0),
-      new THREE.Vector3(x, 1.0, 0),
-      new THREE.Vector3(x + 0.06, 1.22, 0),
-      new THREE.Vector3(x + 0.25, 1.3, 0),
-      new THREE.Vector3(0.12, 1.3, 0),
-    ]);
-    return new THREE.TubeGeometry(c, 80, 0.035, 16, false);
-  }, [x]);
-  return (
-    <mesh geometry={geo} castShadow>
-      <meshPhysicalMaterial color="#cfd4d8" metalness={0.85} roughness={0.3} envMapIntensity={1} />
-    </mesh>
-  );
-};
-
 // ---------------- pharmacy ----------------
 const PharmacyShow: React.FC = () => {
   const t = useT();
@@ -227,10 +207,10 @@ const OfficeShow: React.FC = () => {
 };
 
 // ---------------- reception ----------------
-const REC_POS = atFloor(0.5, 0.66, cam);
+const REC_POS = atFloor(0.5, 0.7, cam);
 const ReceptionShow: React.FC = () => {
   const t = useT();
-  const S = worldWidth(0.66, REC_POS[2], cam) / 2.6;
+  const S = worldWidth(0.8, REC_POS[2], cam) / 2.6;
   const p = landPop(t, 0.1);
   return (
     <Stage cam={cam}>

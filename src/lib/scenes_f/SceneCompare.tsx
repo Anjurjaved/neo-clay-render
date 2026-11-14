@@ -103,11 +103,11 @@ export const SceneCompare: React.FC<{ t: number; dur: number; cue: Cue; data: Co
       {/* ===== দুই card ===== */}
       <Life t={t} a={tA} b={out} position={CA} scale={CS} rotation={[0, 0.06, wobble(t - tLand[0], 0.03, 1.4, 0.15) + wobble(t - (tLand[1] ?? 99), 0.03, 1.4, 0.15)]}>
         <CompareCard title={D.a.title} price={`BDT ${fmt(Math.round(runA / 100) * 100)}${unitA}`} sub={D.a.sub} tone="bad" glow={range(t, tLand[0] ?? 99, (tLand[0] ?? 99) + 0.4) * 0.8} emblem={<Emblem industry={D.industry} scale={0.55} />} />
-        {ver > 0 && <XBadge position={[0.98, 0.5, 0.3]} scale={0.62 * popIn(t, tVer, { k: 240, c: 13 }).s} />}
+        {ver > 0 && <XBadge position={[1.22, 0.74, 0.3]} scale={0.5 * popIn(t, tVer, { k: 240, c: 13 }).s} />}
       </Life>
       <Life t={t} a={tB} b={out + 0.04} position={CB} scale={CS} rotation={[0, -0.06, wobble(t - tVer, 0.04, 1.4, 0.15)]}>
         <CompareCard title={D.b.title} price={`BDT ${fmt(D.b.price)}${unitB}`} sub={D.b.sub} tone="good" glow={ver} emblem={<Emblem industry={D.industry} scale={0.55} />} />
-        {ver > 0 && <CheckBadge position={[0.98, 0.5, 0.3]} scale={0.62 * popIn(t, tVer, { k: 240, c: 13 }).s} color="#22B35E" />}
+        {ver > 0 && <CheckBadge position={[1.22, 0.74, 0.3]} scale={0.5 * popIn(t, tVer, { k: 240, c: 13 }).s} color="#22B35E" />}
       </Life>
       <Life t={t} a={(tA + tB) / 2} b={tHid[0] ?? out} position={atScreen(0.5, 0.25, 2.5, cam)} scale={worldWidth(0.12, 2.5, cam) / 0.8}>
         <SoftPanel w={0.8} h={0.8} thick={0.26} radius={0.4} color={C.deepNavy}>

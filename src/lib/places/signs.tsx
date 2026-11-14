@@ -411,4 +411,23 @@ export const PottedPlant: React.FC<P & { color?: string }> = ({ color = "#5FB36A
   );
 };
 
+/** roof-এর satin L-খুঁটি — ডগা (0.12, 1.3, 0)-এ hanger ঝোলে; TeeOnHanger-কে y≈1.26, scale≈0.82-এ রাখুন */
+export const HangerStand: React.FC<{ x?: number }> = ({ x = -0.55 }) => {
+  const geo = useMemo(() => {
+    const c = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(x, 0.05, 0),
+      new THREE.Vector3(x, 1.0, 0),
+      new THREE.Vector3(x + 0.06, 1.22, 0),
+      new THREE.Vector3(x + 0.25, 1.3, 0),
+      new THREE.Vector3(0.12, 1.3, 0),
+    ]);
+    return new THREE.TubeGeometry(c, 80, 0.035, 16, false);
+  }, [x]);
+  return (
+    <mesh geometry={geo} castShadow>
+      <Satin color="#cfd4d8" rough={0.3} />
+    </mesh>
+  );
+};
+
 export { SilverMat };

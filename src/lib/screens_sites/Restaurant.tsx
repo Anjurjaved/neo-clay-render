@@ -154,7 +154,6 @@ export const RestaurantSite: React.FC<SiteProps> = ({ mode, scroll = 0, reveal =
         <span style={{ color: P }}>Menu</span>
         <span>Order Online</span>
         <span>Reservation</span>
-        <span>Catering</span>
         <span>Contact</span>
       </div>
       <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, fontSize: 16, fontWeight: 800, color: PD }}>

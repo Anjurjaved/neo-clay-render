@@ -74,6 +74,7 @@ export const SiteShell: React.FC<{
             height: hh,
             background: headerBg,
             zIndex: 20,
+            whiteSpace: "nowrap",
             boxShadow: sc > 8 ? "0 6px 22px rgba(20,30,45,0.10)" : "0 1px 0 rgba(20,30,45,0.06)",
             ...revealStyle(hk),
             transform: `translateY(${(1 - hk) * -20}px)`,

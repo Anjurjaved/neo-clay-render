@@ -191,8 +191,8 @@ export const JitSite: React.FC<{ industry: Industry; url: string; caret: boolean
       </div>
       <div style={{ position: "absolute", top: 120, left: 0, height: 6, width: `${load * 100}%`, background: "#2F80ED", opacity: load > 0 && load < 1 ? 1 : 0 }} />
       {reveal > 0 && (
-        <div style={{ position: "absolute", top: 126, left: 0, right: 0, bottom: 0 }}>
-          <div style={{ height: 96, display: "flex", alignItems: "center", padding: "0 64px", borderBottom: "1px solid #EEE6DC", ...sec(0) }}>
+        <div style={{ position: "absolute", top: 126, left: 0, width: 1512 / 1.42, height: (982 - 126) / 1.42, zoom: 1.42 } as React.CSSProperties}>
+          <div style={{ height: 84, display: "flex", alignItems: "center", padding: "0 44px", borderBottom: "1px solid #EEE6DC", ...sec(0) }}>
             <Img src={staticFile(LOGO_SRC)} style={{ width: 58, height: 58, marginRight: 16 }} />
             <div style={{ fontWeight: 800, fontSize: 32 }}>Javed IT Solution</div>
             <div style={{ marginLeft: "auto", display: "flex", gap: 40, fontSize: 24, fontWeight: 700, color: "#4a5a6c", alignItems: "center" }}>
@@ -202,10 +202,10 @@ export const JitSite: React.FC<{ industry: Industry; url: string; caret: boolean
               <span style={{ background: "#13253C", color: "#fff", padding: "12px 24px", borderRadius: 14 }}>Free quote</span>
             </div>
           </div>
-          <div style={{ display: "flex", padding: "54px 64px 0", gap: 50 }}>
+          <div style={{ display: "flex", padding: "36px 44px 0", gap: 34 }}>
             <div style={{ flex: 1.15 }}>
               <div style={{ fontSize: 22, fontWeight: 800, color: "#D85E24", letterSpacing: 2, ...sec(1) }}>WEBSITE DEVELOPMENT</div>
-              <div style={{ fontSize: 74, fontWeight: 800, lineHeight: 1.04, marginTop: 12, letterSpacing: -1, ...sec(1) }}>{d.web}</div>
+              <div style={{ fontSize: 62, fontWeight: 800, lineHeight: 1.04, marginTop: 12, letterSpacing: -1, ...sec(1) }}>{d.web}</div>
               <div style={{ fontSize: 32, fontFamily: BN, fontWeight: 600, color: "#4a5a6c", marginTop: 18, ...sec(2) }}>{bnWeb ?? d.bnWeb}</div>
               <div style={{ display: "flex", gap: 18, marginTop: 40, ...sec(3) }}>
                 <div style={{ background: "#F5952B", color: "#fff", fontSize: 28, fontWeight: 800, padding: "22px 34px", borderRadius: 18, display: "flex", gap: 12, alignItems: "center" }}>

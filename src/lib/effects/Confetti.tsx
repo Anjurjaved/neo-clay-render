@@ -79,7 +79,7 @@ export const Confetti: React.FC<{
     () =>
       seeded(seed, count, (r) => {
         const phi = r() * Math.PI * 2;
-        const hz = between(r, 2.2, 6.4) * spread;
+        const hz = between(r, 2.6, 7.2) * spread * (0.6 + 0.4 * Math.abs(Math.cos(phi)));
         const p: Piece = {
           delay: Math.pow(r(), 1.6) * 0.16,
           vx: Math.cos(phi) * hz,
@@ -139,7 +139,7 @@ export const Confetti: React.FC<{
         }
         const y = landed ? floorY + 0.012 : origin[1] + f.y;
         return (
-          <mesh key={i} geometry={geos[p.shape]} material={mats[p.color]} position={[origin[0] + f.x + sx, y, origin[2] + f.z + sz]} quaternion={q.clone()} scale={sc} castShadow receiveShadow />
+          <mesh key={i} geometry={geos[p.shape]} material={mats[p.color]} position={[origin[0] + f.x + sx, y, origin[2] + f.z + sz]} quaternion={q.clone()} scale={[sc, sc * 0.5, sc]} castShadow receiveShadow />
         );
       })}
     </group>

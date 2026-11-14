@@ -11,7 +11,7 @@ import { ScreenSpec } from "../../kit/Screens";
 import { C } from "../../kit/theme";
 import { Cue, Industry, Life, backIn, beat, fmt, clamp01 } from "./common";
 import { THEME, Subject, Pedestal } from "./industry";
-import { MacBook, macScreen, MB } from "./MacBook";
+import { MacBook, macbookScreen, MACBOOK } from "../devices/MacBook";
 import { SiteDesk } from "./SiteDesk";
 import { HangTag, TAG, DeskCalendar } from "./props";
 
@@ -44,7 +44,7 @@ const TAG_S = worldWidth(0.32, 0.5, cam) / TAG.w;
 const CALP = atScreen(0.73, 0.305, 0.5, cam);
 const CAL_S = worldWidth(0.24, 0.5, cam) / 1.7;
 const MACP = atFloor(0.575, 0.77, cam);
-const MAC_S = worldWidth(0.64, MACP[2], cam) / MB.w;
+const MAC_S = worldWidth(0.64, MACP[2], cam) / MACBOOK.w;
 const SUBP = atFloor(0.15, 0.835, cam);
 const SUB_S = worldWidth(0.21, SUBP[2], cam) / 1.4;
 
@@ -81,7 +81,7 @@ export const SceneAnswer: React.FC<{ t: number; dur: number; cue: Cue; data: Ans
   const build = tween(t, macIn + 0.8, T.dMax + 0.3, 0, 1, (x) => x);
   const live = range(t, LIVE, LIVE + 0.5);
   if (t > macIn && macOut < 1 && open > 0.55)
-    screens.push(macScreen(mac, Math.min(1.04, openRaw), <SiteDesk industry={data.industry} build={build} live={live} />, { opacity: range(open, 0.55, 0.85) }));
+    screens.push(macbookScreen({ ...mac, open: Math.min(1.04, openRaw) }, <SiteDesk industry={data.industry} build={build} live={live} />, { px: 1024, py: 665, radius: 10, bg: "#ECEEF2", opacity: range(open, 0.55, 0.85) }));
 
   // ---- price tag: সুতায় নেমে আসে, pendulum দোলা, min → max ----
   const tagDrop = springStep(t - T.pMin, { k: 120, c: 9 });
@@ -123,7 +123,7 @@ export const SceneAnswer: React.FC<{ t: number; dur: number; cue: Cue; data: Ans
       </Life>
 
       {/* ---- MacBook ---- */}
-      {t > macIn && macOut < 1 && <MacBook {...mac} open={Math.min(1.04, openRaw)} finish={data.finish} />}
+      {t > macIn && macOut < 1 && <MacBook {...mac} open={Math.min(1.04, openRaw)} color={data.finish === "grey" ? "spacegrey" : "silver"} />}
 
       {/* ---- price tag ---- */}
       {t > T.pMin - 0.02 && tagOut < 1 && (

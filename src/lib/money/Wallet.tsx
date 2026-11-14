@@ -99,7 +99,7 @@ export const Wallet: React.FC<P & { open: number; notes?: number; color?: string
   const slotG = useMemo(() => slabGeo(1.6, 0.34, 0.035, 0.06, 0.016, 4), []);
   const cardG = useMemo(() => slabGeo(1.45, 0.5, 0.022, 0.07, 0.009, 3), []);
   const pocketG = useMemo(() => slabGeo(1.72, 0.62, 0.04, 0.08, 0.018, 4), []);
-  const chipG = useMemo(() => slabGeo(0.2, 0.15, 0.012, 0.03, 0.005, 2), []);
+  const chipG = useMemo(() => slabGeo(0.16, 0.1, 0.012, 0.025, 0.005, 2), []);
   const nk = k01(notes);
   return (
     <G {...p}>
@@ -125,7 +125,7 @@ export const Wallet: React.FC<P & { open: number; notes?: number; color?: string
                   <meshPhysicalMaterial color={cols[i]} roughness={0.35} clearcoat={0.7} clearcoatRoughness={0.2} />
                 </mesh>
                 {i === 2 && (
-                  <mesh geometry={chipG} position={[-WL.leaf / 2 - 0.45, y + 0.14, WL.t / 2 + 0.04 + i * 0.012]}>
+                  <mesh geometry={chipG} position={[-WL.leaf / 2 - 0.45, y + 0.2, WL.t / 2 + 0.04 + i * 0.012]}>
                     <SilverMat color="#e7c77a" rough={0.3} />
                   </mesh>
                 )}

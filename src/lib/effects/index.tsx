@@ -39,7 +39,7 @@ const ConfettiShow: React.FC = () => {
       <Pop t={t} at={0.1} position={[0, FLOOR, Z]} scale={1.35} rotation={[0, -0.32, 0]}>
         <BadgeOnPedestal />
       </Pop>
-      <Confetti t={t} at={0.55} origin={[0, FLOOR + 3.0, Z + 0.2]} count={64} seed={21} size={1.7} spread={0.85} lift={0.9} toward={1.2} />
+      <Confetti t={t} at={0.55} origin={[0, FLOOR + 3.0, Z + 0.2]} count={64} seed={21} size={1.5} spread={1.35} lift={0.85} toward={1.0} depth={0.5} />
     </Stage>
   );
 };

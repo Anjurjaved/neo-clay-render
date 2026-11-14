@@ -3,6 +3,7 @@
 // বাম-ডান-নিচে ধীরে মিলিয়ে যায় (প্লেটের কিনারা নেই)। berg = এক টুকরার high-res displaced mesh।
 import React, { useMemo } from "react";
 import * as THREE from "three";
+import { mergeVertices } from "three/examples/jsm/utils/BufferGeometryUtils.js";
 import { Txt } from "../../kit/Clay";
 import { springStep } from "../../kit/anim";
 import { C } from "../../kit/theme";
@@ -28,7 +29,8 @@ export const waveY = (x: number, z: number, t: number, splash = -1, bob = 0) => 
 };
 
 const bergGeo = () => {
-  const g = new THREE.IcosahedronGeometry(1, 6);
+  // Icosahedron non-indexed → merge না করলে flat-shaded facet; merge করে মসৃণ normal (আর ৬ গুণ কম vertex)
+  const g = mergeVertices(new THREE.IcosahedronGeometry(1, 6));
   const a = g.attributes.position as THREE.BufferAttribute;
   const v = new THREE.Vector3();
   const nz = (p: THREE.Vector3) => {
@@ -53,8 +55,8 @@ const bergGeo = () => {
     const W = y > 0 ? 1.12 * (1 - 0.55 * Math.pow(y, 1.3)) : 1.12 + 0.42 * Math.sin(Math.min(1, -y * 1.25) * Math.PI * 0.75);
     const H = y > 0 ? y * 1.45 : y * 3.1;
     const n = nz(v);
-    let px = v.x * W * (0.86 + 0.32 * n);
-    let pz = v.z * W * 0.78 * (0.86 + 0.32 * n);
+    const px = v.x * W * (0.86 + 0.32 * n);
+    const pz = v.z * W * 0.62 * (0.86 + 0.32 * n); // জলের সামনের তল (z = WZ/2) ভেদ না করে
     let py = H + (y > 0 ? 0.25 * n * y : -0.3 * n * y * y);
     // দ্বিতীয় চূড়া (বাম পিছনে) — চেনা iceberg silhouette
     if (y > 0) py += 0.42 * Math.exp(-((v.x + 0.45) ** 2 + (v.z + 0.1) ** 2) / 0.12) * y;
@@ -217,7 +219,8 @@ export const Iceberg: React.FC<
       <mesh geometry={top} renderOrder={3}>
         <meshPhysicalMaterial vertexColors transparent roughness={0.08} metalness={0} clearcoat={1} clearcoatRoughness={0.05} envMapIntensity={1.6} depthWrite={false} side={THREE.DoubleSide} />
       </mesh>
-      {/* লেখা */}
+      {/* লেখা — জলের পরে আঁকা (renderOrder) যাতে জল লেখাকে ঢেকে না দেয় */}
+      <group renderOrder={10}>
       {above && aboveAge >= 0 && (
         <group position={[0, 2.25, 0.4]} scale={springStep(aboveAge, { k: 220, c: 11 })}>
           <Txt size={0.26} color={C.deepNavy} letterSpacing={0.05}>
@@ -237,6 +240,7 @@ export const Iceberg: React.FC<
           </group>
         );
       })}
+      </group>
     </G>
   );
 };

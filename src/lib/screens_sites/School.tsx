@@ -212,7 +212,7 @@ export const SchoolSite: React.FC<SiteProps> = ({ mode, scroll = 0, reveal = 1 }
   );
 
   const fee = (
-    <div style={{ background: SKY, borderRadius: 22, padding: m ? 16 : 22, display: "flex", flexDirection: "column", gap: 10, width: m ? undefined : 330, boxSizing: "border-box", alignSelf: "flex-start" }}>
+    <div style={{ background: SKY, borderRadius: 22, padding: m ? 16 : 22, display: "flex", flexDirection: "column", gap: 10, width: m ? "100%" : 330, boxSizing: "border-box", alignSelf: "flex-start" }}>
       <div style={{ fontFamily: BN, fontSize: 19, fontWeight: 700, color: PD }}>ফি-এর হিসাব</div>
       {[
         ["ভর্তি ফি (একবার)", "৳1,000"],

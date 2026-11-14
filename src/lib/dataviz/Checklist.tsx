@@ -70,7 +70,7 @@ export const Checklist: React.FC<
       {/* board */}
       <SoftPanel w={w + 0.4} h={bh} thick={0.3} color="#E7C9A6" rough={0.62}>
         {/* paper */}
-        <SoftPanel w={w} h={ph} thick={0.06} color="#FFFDF9" position={[0, -0.12, -0.02]} rough={0.8}>
+        <SoftPanel w={w} h={ph} thick={0.06} color="#FFFDF9" position={[0, -0.12, 0.0]} rough={0.8}>
           <Txt size={0.19} color={C.navy} anchorX="left" position={[-w / 2 + 0.3, ph / 2 - 0.48, 0.02]} letterSpacing={0.05}>
             {title}
           </Txt>

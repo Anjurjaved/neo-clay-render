@@ -60,7 +60,7 @@ export const Tooth3D: React.FC<IP> = ({ t = 0, ...p }) => {
 };
 
 // ---------------- calendar ----------------
-export const Calendar3D: React.FC<IP & { top?: string }> = ({ t = 0, accent = C.orange, text = "7", top = "DAYS", ...p }) => {
+export const Calendar3D: React.FC<IP & { top?: string }> = ({ t = 0, accent = C.orange, text = "7", top = "DATE", ...p }) => {
   const body = useMemo(() => slabGeo(0.96, 0.98, 0.22, 0.17, 0.08, 8), []);
   const head = useMemo(() => slabGeo(0.97, 0.3, 0.25, 0.13, 0.08, 8), []);
   const fs = Math.min(0.46, 0.8 / Math.max(1, text.length * 0.62));

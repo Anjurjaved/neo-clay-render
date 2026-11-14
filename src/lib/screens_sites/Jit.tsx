@@ -124,7 +124,6 @@ export const JitSite: React.FC<SiteProps> = ({ mode, scroll = 0, reveal = 1 }) =
         <span style={{ color: DOR }}>Website</span>
         <span>SEO</span>
         <span>AI Chatbot</span>
-        <span>AI Video</span>
         <span>Contact</span>
       </div>
       <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, fontSize: 16, fontWeight: 800, color: NAVY }}>
